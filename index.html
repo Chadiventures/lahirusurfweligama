@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -87,339 +87,335 @@
 </script>
 
 <style>
-  /* ---------- tokens ---------- */
+  /* ---------- tokens: retro surf palette (rose, rust, mustard, olive, khaki, sage) ---------- */
   :root{
-    --bg:#FFF6E6;
-    --bg-alt:#FFE9BC;
+    --bg:#FBF3E4;
+    --bg-alt:#F0E0BC;
     --surface:#FFFFFF;
-    --surface-2:#FFFBF2;
-    --text:#0B3D39;
-    --text-muted:#4B726B;
-    --accent:#FF6B3D;
-    --accent-ink:#0B3D39;
-    --accent-2:#FFC93C;
-    --ocean:#00B7A8;
-    --ocean-deep:#046B63;
-    --pink:#FF4F81;
-    --palm:#1E9E5A;
-    --border: rgba(11,61,57,0.18);
-    --hard-shadow: rgba(11,61,57,0.85);
-    --focus: #1768A6;
+    --surface-2:#FFFCF5;
+    --text:#21180C;
+    --text-muted:#6E6153;
+    --accent:#D57E5D;
+    --accent-ink:#21180C;
+    --accent-2:#E3BC79;
+    --rose:#7F9E93;
+    --sage:#A9C0B8;
+    --khaki:#C99A5B;
+    --olive-deep:#21180C;
+    --border: rgba(33,24,12,0.15);
+    --shadow: 0 20px 44px rgba(33,24,12,0.18);
+    --shadow-sm: 0 10px 22px rgba(33,24,12,0.13);
+    --focus:#1768A6;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#052A28;
-      --bg-alt:#03211F;
-      --surface:#0C3B37;
-      --surface-2:#0F433E;
-      --text:#F2FBF8;
-      --text-muted:#AFC9C3;
-      --accent:#FF8A5C;
-      --accent-ink:#052A28;
-      --accent-2:#FFD86B;
-      --ocean:#2FE1D0;
-      --ocean-deep:#0A4A46;
-      --pink:#FF7CA8;
-      --palm:#4CC98A;
-      --border: rgba(242,251,248,0.18);
-      --hard-shadow: rgba(0,0,0,0.6);
+      --bg:#1B140C;
+      --bg-alt:#140F09;
+      --surface:#262019;
+      --surface-2:#2C2419;
+      --text:#F5EBDA;
+      --text-muted:#C9B9A0;
+      --accent:#E08F68;
+      --accent-ink:#1B140C;
+      --accent-2:#EAC98A;
+      --rose:#9BB8AD;
+      --sage:#B9CFC6;
+      --khaki:#D4A96A;
+      --olive-deep:#0D0A06;
+      --border: rgba(245,235,218,0.16);
+      --shadow: 0 20px 44px rgba(0,0,0,0.55);
+      --shadow-sm: 0 10px 22px rgba(0,0,0,0.45);
       --focus:#7EC8F2;
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#052A28;
-    --bg-alt:#03211F;
-    --surface:#0C3B37;
-    --surface-2:#0F433E;
-    --text:#F2FBF8;
-    --text-muted:#AFC9C3;
-    --accent:#FF8A5C;
-    --accent-ink:#052A28;
-    --accent-2:#FFD86B;
-    --ocean:#2FE1D0;
-    --ocean-deep:#0A4A46;
-    --pink:#FF7CA8;
-    --palm:#4CC98A;
-    --border: rgba(242,251,248,0.18);
-    --hard-shadow: rgba(0,0,0,0.6);
+    --bg:#1B140C;
+    --bg-alt:#140F09;
+    --surface:#262019;
+    --surface-2:#2C2419;
+    --text:#F5EBDA;
+    --text-muted:#C9B9A0;
+    --accent:#E08F68;
+    --accent-ink:#1B140C;
+    --accent-2:#EAC98A;
+    --rose:#9BB8AD;
+    --sage:#B9CFC6;
+    --khaki:#D4A96A;
+    --olive-deep:#0D0A06;
+    --border: rgba(245,235,218,0.16);
+    --shadow: 0 20px 44px rgba(0,0,0,0.55);
+    --shadow-sm: 0 10px 22px rgba(0,0,0,0.45);
     --focus:#7EC8F2;
     color-scheme: dark;
   }
 
   *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; scroll-padding-top:5.75rem; }
+  html{ scroll-behavior:smooth; scroll-padding-top:5.5rem; }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
   }
   body{
-    background:var(--bg);
-    color:var(--text);
+    background:var(--bg); color:var(--text);
     font-family:'Schibsted Grotesk', -apple-system, 'Segoe UI', sans-serif;
-    line-height:1.5;
-    padding:0 !important;
-    font-size:16px;
-    margin:0;
+    line-height:1.55; padding:0 !important; margin:0; font-size:16px;
   }
   img,svg{ max-width:100%; }
-  .wave-band svg{ max-width:none; }
-  h1,h2,h3{ font-family:'Bungee', 'Arial Black', sans-serif; font-weight:400; line-height:1.08; text-wrap:balance; margin:0; }
+  h1,h2,h3{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; line-height:1.12; text-wrap:balance; margin:0; letter-spacing:-0.01em; }
   p{ margin:0; }
   a{ color:inherit; }
-  ::selection{ background:var(--accent); color:var(--accent-ink); }
+  ::selection{ background:var(--accent-2); color:var(--olive-deep); }
   :focus-visible{ outline:3px solid var(--focus); outline-offset:3px; }
 
-  .wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; }
+  .wrap{ max-width:1160px; margin:0 auto; padding-inline:24px; }
   @media (max-width:480px){ .wrap{ padding-inline:16px; } }
 
-  .prose{ font-family:'Fraunces', Georgia, 'Times New Roman', serif; font-size:1.08rem; color:var(--text); max-width:62ch; }
-  .prose em{ font-style:italic; color:var(--ocean); }
-  :root[data-theme="dark"] .prose em{ color:var(--accent-2); }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .prose em{ color:var(--accent-2); }
-  }
+  .script{ font-family:'Caveat', cursive; font-weight:700; }
+
+  .prose{ font-size:1.05rem; color:var(--text); max-width:60ch; }
 
   .btn{
     display:inline-flex; align-items:center; gap:.5rem;
-    font-family:'Schibsted Grotesk', sans-serif; font-weight:700; font-size:0.98rem;
-    padding:.85rem 1.6rem; border-radius:999px; border:2px solid var(--text);
-    background:linear-gradient(135deg, var(--accent), var(--pink)); color:var(--accent-ink);
-    box-shadow:4px 4px 0 var(--hard-shadow);
+    font-family:'Schibsted Grotesk', sans-serif; font-weight:700; font-size:0.96rem;
+    padding:.9rem 1.7rem; border-radius:999px; border:none;
+    background:var(--accent); color:#FFF8EE;
+    box-shadow:var(--shadow-sm);
     cursor:pointer; text-decoration:none;
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:transform .18s ease, box-shadow .18s ease;
   }
-  .btn:hover{ transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--hard-shadow); }
-  .btn:active{ transform:translate(0,0); box-shadow:2px 2px 0 var(--hard-shadow); }
-  .btn.ghost{ background:transparent; color:var(--text); }
-  .btn.small{ padding:.55rem 1.1rem; font-size:.88rem; }
+  .btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow); }
+  .btn.ghost{ background:var(--surface); color:var(--text); border:2px solid var(--border); box-shadow:none; }
+  .btn.small{ padding:.6rem 1.15rem; font-size:.88rem; }
 
   .pill{
-    display:inline-flex; align-items:center; padding:.3rem .8rem; border-radius:999px;
-    border:1.5px solid var(--border); font-size:.85rem; color:var(--text-muted); white-space:nowrap;
+    display:inline-flex; align-items:center; padding:.4rem .95rem; border-radius:999px;
+    font-size:.85rem; font-weight:600; color:var(--olive-deep); white-space:nowrap;
+  }
+  .pill.p-rose{ background:color-mix(in srgb, var(--rose) 30%, var(--surface)); }
+  .pill.p-mustard{ background:color-mix(in srgb, var(--accent-2) 35%, var(--surface)); }
+  .pill.p-sage{ background:color-mix(in srgb, var(--sage) 35%, var(--surface)); }
+  .pill.p-khaki{ background:color-mix(in srgb, var(--khaki) 40%, var(--surface)); }
+  :root[data-theme="dark"] .pill{ color:var(--olive-deep); }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .pill{ color:var(--olive-deep); }
   }
 
   .section{ padding-block:5rem; }
   .section.alt{ background:var(--bg-alt); }
   @media (max-width:640px){ .section{ padding-block:3.25rem; } }
 
-  .kicker-head{ display:flex; flex-direction:column; gap:.6rem; margin-bottom:2.5rem; }
-  .kicker-head h2{ font-size:clamp(1.9rem, 4vw, 2.6rem); }
-  .kicker-head p{ font-family:'Fraunces', Georgia, serif; font-size:1.1rem; color:var(--text-muted); max-width:56ch; }
+  .kicker-head{ display:flex; flex-direction:column; gap:.6rem; margin-bottom:2.6rem; }
+  .kicker-head .script-tag{ font-size:1.5rem; color:var(--accent); margin-bottom:-.3rem; }
+  .kicker-head h2{ font-size:clamp(1.9rem, 4vw, 2.5rem); }
+  .kicker-head p{ font-size:1.05rem; color:var(--text-muted); max-width:56ch; }
 
-  /* ---------- header ---------- */
-  .site-header{
-    position:sticky; top:env(safe-area-inset-top,0px); z-index:40;
-    background:var(--bg); border-bottom:2px solid var(--text);
+  /* ---------- floating pill nav ---------- */
+  .nav-outer{ position:sticky; top:calc(env(safe-area-inset-top,0px) + 14px); z-index:40; padding-inline:16px; }
+  .nav-pill{
+    max-width:1160px; margin:0 auto; background:var(--surface); border-radius:999px;
+    box-shadow:var(--shadow-sm); display:flex; align-items:center; justify-content:space-between;
+    padding:.6rem .7rem .6rem 1.3rem; gap:1rem; position:relative;
   }
-  .site-header .wrap{ position:relative; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding-block:.9rem; }
-  .logo{ display:flex; flex-direction:column; gap:0; text-decoration:none; color:var(--text); }
-  .logo strong{ font-family:'Bungee', sans-serif; font-size:1.15rem; letter-spacing:.01em; }
-  .logo span{ font-size:.72rem; color:var(--text-muted); font-family:'Schibsted Grotesk', sans-serif; }
+  .logo{ display:flex; align-items:center; gap:.5rem; text-decoration:none; color:var(--text); flex-shrink:0; }
+  .logo .mark{ width:1.9rem; height:1.9rem; border-radius:50%; background:var(--accent-2); display:flex; align-items:center; justify-content:center; }
+  .logo .mark svg{ width:1.1rem; height:1.1rem; color:var(--olive-deep); }
+  .logo strong{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.02rem; }
 
-  .nav-links{ display:flex; align-items:center; gap:1.6rem; list-style:none; margin:0; padding:0; }
-  .nav-links a{ text-decoration:none; font-weight:600; font-size:.95rem; }
+  .nav-links{ display:flex; align-items:center; gap:1.5rem; list-style:none; margin:0; padding:0; }
+  .nav-links a{ text-decoration:none; font-weight:600; font-size:.92rem; }
   .nav-links a:hover{ color:var(--accent); }
 
-  .header-actions{ display:flex; align-items:center; gap:.6rem; }
+  .header-actions{ display:flex; align-items:center; gap:.5rem; }
   .icon-link{
     display:inline-flex; align-items:center; justify-content:center;
-    width:2.4rem; height:2.4rem; border-radius:50%;
-    border:2px solid var(--text); color:var(--text); text-decoration:none;
-    transition:background .15s ease, color .15s ease;
+    width:2.3rem; height:2.3rem; border-radius:50%;
+    background:var(--bg-alt); color:var(--olive-deep); text-decoration:none;
+    transition:background .15s ease;
   }
-  .icon-link:hover{ background:var(--text); color:var(--bg); }
-  .icon-link svg{ width:1.15rem; height:1.15rem; }
+  .icon-link:hover{ background:var(--accent-2); }
+  .icon-link svg{ width:1.1rem; height:1.1rem; }
+  .nav-cta{ background:var(--accent); color:#FFF8EE; }
 
-  .nav-toggle{ display:none; background:none; border:2px solid var(--text); border-radius:8px; padding:.4rem .55rem; cursor:pointer; }
-  .nav-toggle svg{ width:1.3rem; height:1.3rem; display:block; }
+  .nav-toggle{ display:none; background:var(--bg-alt); border:none; border-radius:50%; width:2.3rem; height:2.3rem; align-items:center; justify-content:center; cursor:pointer; }
+  .nav-toggle svg{ width:1.15rem; height:1.15rem; display:block; }
 
   @media (max-width:760px){
     .nav-links{
-      position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:flex-start;
-      background:var(--bg); border-bottom:2px solid var(--text); padding:1rem 24px 1.5rem; gap:1rem;
-      display:none; z-index:45;
+      position:absolute; top:calc(100% + 10px); left:0; right:0; flex-direction:column; align-items:flex-start;
+      background:var(--surface); border-radius:22px; padding:1.2rem 1.4rem; gap:1rem; box-shadow:var(--shadow);
+      display:none;
     }
     .nav-links.open{ display:flex; }
     .nav-toggle{ display:inline-flex; }
   }
 
   /* ---------- hero ---------- */
-  .hero{ position:relative; overflow:hidden; padding-block: 4.5rem 0; background:var(--bg); }
-  .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:2.5rem; align-items:center; }
-  @media (max-width:880px){ .hero-grid{ grid-template-columns:1fr; } }
-
-  .hero h1{ font-size:clamp(2.5rem, 5.6vw, 4.1rem); }
-  .hero-sub{ font-family:'Fraunces', Georgia, serif; font-size:1.25rem; color:var(--text-muted); max-width:46ch; margin-top:1.1rem; }
-  .hero-cta-row{ display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2rem; }
-
-  .hero-facts{ display:flex; flex-wrap:wrap; gap:1.1rem; margin-top:2.2rem; }
-  .hero-fact{ display:flex; align-items:center; gap:.55rem; font-size:.92rem; color:var(--text-muted); }
-  .hero-fact svg{ width:1.1rem; height:1.1rem; color:var(--ocean); flex-shrink:0; }
-  :root[data-theme="dark"] .hero-fact svg{ color:var(--accent-2); }
-  @media (prefers-color-scheme:dark){
-    :root:not([data-theme="light"]) .hero-fact svg{ color:var(--accent-2); }
+  .hero{ padding-top:1.5rem; }
+  .hero-media{
+    position:relative; border-radius:32px; overflow:hidden; min-height:560px;
+    display:flex; align-items:flex-end;
   }
-
-  .sun-wrap{ position:relative; display:flex; justify-content:center; align-items:center; }
-  .sun-wrap svg{ width:100%; height:auto; max-width:420px; overflow:visible; }
-  .cloud-drift{ animation:cloud-float 14s ease-in-out infinite; }
-  .cloud-drift.cloud-b{ animation-duration:18s; animation-delay:-4s; }
-  @keyframes cloud-float{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(18px); } }
-
-  .wave-band{ position:relative; height:120px; margin-top:3.5rem; overflow:hidden; }
-  .wave-band svg{ position:absolute; bottom:0; left:0; width:200%; height:100%; animation:drift 22s linear infinite; }
-  @keyframes drift{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
-
-  /* ---------- about ---------- */
-  .about-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:3rem; align-items:center; }
-  @media (max-width:880px){ .about-grid{ grid-template-columns:1fr; } }
-  .portrait-frame{ position:relative; border:3px solid var(--text); border-radius:12px; overflow:hidden; background:var(--ocean); box-shadow:7px 7px 0 var(--hard-shadow); }
-  .portrait-frame svg{ display:block; width:100%; height:auto; }
-  .badge-row{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.6rem; }
-
-  /* ---------- gallery ---------- */
-  .gallery-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.8rem 1.5rem; }
-  @media (max-width:880px){ .gallery-grid{ grid-template-columns:repeat(2, 1fr); } }
-  @media (max-width:560px){ .gallery-grid{ grid-template-columns:1fr; } }
-  .gallery-tile{
-    margin:0; background:var(--surface); border:2px solid var(--text); border-radius:14px; overflow:hidden;
-    box-shadow:5px 5px 0 var(--hard-shadow); transition:transform .2s ease, box-shadow .2s ease;
+  .hero-media svg.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .hero-icon-rail{
+    position:absolute; top:2rem; left:2rem; display:flex; flex-direction:column; gap:.7rem; z-index:2;
   }
-  .gallery-tile:nth-child(odd){ transform:rotate(-1.1deg); }
-  .gallery-tile:nth-child(even){ transform:rotate(1.1deg); }
-  .gallery-tile:hover, .gallery-tile:focus-within{ transform:rotate(0deg) translateY(-4px); box-shadow:7px 7px 0 var(--hard-shadow); }
-  .gallery-tile svg{ display:block; width:100%; height:auto; }
-  .gallery-tile figcaption{ padding:1rem 1.1rem 1.2rem; display:flex; flex-direction:column; gap:.3rem; }
-  .gallery-tile figcaption strong{ font-size:1rem; }
-  .gallery-tile figcaption span{ font-family:'Fraunces', Georgia, serif; font-size:.92rem; color:var(--text-muted); }
-  .gallery-note{ margin-top:1.8rem; font-size:.88rem; color:var(--text-muted); font-style:italic; }
+  .hero-icon-rail .icon-link{ background:rgba(255,251,243,0.85); width:2.6rem; height:2.6rem; }
+  .hero-icon-rail .icon-link:hover{ background:var(--accent-2); }
+  .hero-content{ position:relative; z-index:2; padding:3rem 2.5rem; max-width:640px; }
+  .hero h1{ font-size:clamp(2.4rem, 5.4vw, 3.8rem); color:#FFF8EE; }
+  .hero-sub{ font-size:1.15rem; color:#FFF3E2; max-width:44ch; margin-top:1rem; }
+  .hero-cta-row{ display:flex; flex-wrap:wrap; gap:.9rem; margin-top:1.8rem; }
+  @media (max-width:640px){ .hero-content{ padding:8rem 1.4rem 2rem; } .hero-media{ min-height:560px; border-radius:22px; } }
 
-  /* ---------- lessons / tickets ---------- */
-  .lesson-group{ margin-bottom:3rem; }
-  .lesson-group:last-child{ margin-bottom:0; }
-  .lesson-group h3{ font-family:'Schibsted Grotesk', sans-serif; font-weight:700; font-size:1.35rem; margin-bottom:1.3rem; display:flex; align-items:center; gap:.6rem; }
+  /* ---------- marquee ---------- */
+  .marquee{ background:var(--olive-deep); overflow:hidden; padding-block:1rem; margin-top:1.5rem; }
+  .marquee-track{ display:flex; width:max-content; animation:marquee 26s linear infinite; }
+  .marquee-track span{ font-family:'Caveat', cursive; font-weight:700; font-size:1.6rem; color:var(--accent-2); padding-inline:1.2rem; white-space:nowrap; }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
-  .ticket{
-    display:flex; background:var(--surface); border:2px solid var(--text); border-radius:12px;
-    box-shadow:5px 5px 0 var(--hard-shadow); margin-bottom:1.4rem; overflow:visible; position:relative;
-  }
-  .ticket:last-child{ margin-bottom:0; }
-  .ticket-info{ flex:1; padding:1.4rem 1.6rem; display:flex; flex-direction:column; gap:.55rem; min-width:0; }
-  .ticket-info h4{ font-family:'Schibsted Grotesk', sans-serif; font-weight:700; font-size:1.15rem; margin:0; }
-  .ticket-info p{ font-family:'Fraunces', Georgia, serif; color:var(--text-muted); font-size:.98rem; }
-  .ticket-tags{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.3rem; }
+  /* ---------- quick facts strip ---------- */
+  .facts-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:2.2rem; padding-block:1.8rem; }
+  .fact-item{ display:flex; align-items:center; gap:.6rem; font-weight:600; font-size:.95rem; color:var(--text-muted); }
+  .fact-item svg{ width:1.2rem; height:1.2rem; color:var(--accent); flex-shrink:0; }
 
-  .ticket-stub{
-    position:relative; flex-shrink:0; width:9.5rem; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:.15rem; padding:1rem .5rem;
-    background:var(--bg-alt); border-left:2px dashed var(--text);
-  }
-  .ticket-stub::before,.ticket-stub::after{
-    content:""; position:absolute; left:-11px; width:20px; height:20px; border-radius:50%;
-    background:var(--bg); border:2px solid var(--text);
-  }
-  .ticket-stub::before{ top:-11px; }
-  .ticket-stub::after{ bottom:-11px; }
-  .section.alt .ticket-stub::before, .section.alt .ticket-stub::after{ background:var(--bg-alt); }
-  .ticket-price{ font-family:'Bungee', sans-serif; font-size:1.7rem; font-variant-numeric:tabular-nums; line-height:1; }
-  .ticket-unit{ font-size:.72rem; color:var(--text-muted); text-align:center; }
-  .ticket-duration{ font-size:.78rem; color:var(--text-muted); text-align:center; margin-top:.3rem; }
+  /* ---------- icon strip ---------- */
+  .icon-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:1.1rem; padding-block:.5rem 3rem; }
+  .icon-tile{ width:5.4rem; height:5.4rem; border-radius:22px; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm); flex-shrink:0; }
+  .icon-tile svg{ width:2.5rem; height:2.5rem; }
 
-  @media (max-width:640px){
-    .ticket{ flex-direction:column; }
-    .ticket-stub{ width:auto; flex-direction:row; justify-content:space-between; border-left:none; border-top:2px dashed var(--text); }
-    .ticket-stub::before,.ticket-stub::after{ left:auto; top:-11px; }
-    .ticket-stub::before{ left:-11px; }
-    .ticket-stub::after{ right:-11px; left:auto; }
-  }
+  /* ---------- welcome + collage ---------- */
+  .welcome-grid{ display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+  @media (max-width:860px){ .welcome-grid{ grid-template-columns:1fr; } }
+  .collage{ position:relative; min-height:340px; }
+  .collage-img{ position:absolute; border-radius:24px; overflow:hidden; border:6px solid var(--surface); box-shadow:var(--shadow); }
+  .collage-img.c1{ width:68%; top:0; left:0; z-index:1; }
+  .collage-img.c2{ width:52%; bottom:0; right:0; z-index:2; }
+  @media (max-width:860px){ .collage{ min-height:280px; } }
 
-  .includes-note{ display:flex; align-items:flex-start; gap:.6rem; font-size:.95rem; color:var(--text-muted); margin-bottom:2.4rem; }
+  /* ---------- offering cards ---------- */
+  .offer-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.6rem; }
+  @media (max-width:860px){ .offer-grid{ grid-template-columns:1fr; } }
+  .offer-card{ background:var(--surface); border-radius:26px; overflow:hidden; box-shadow:var(--shadow-sm); }
+  .offer-card svg{ display:block; width:100%; height:auto; }
+  .offer-card-body{ padding:1.4rem 1.5rem 1.6rem; display:flex; flex-direction:column; gap:.5rem; }
+  .offer-card-body h3{ font-size:1.15rem; }
+  .offer-card-body p{ color:var(--text-muted); font-size:.95rem; }
+
+  /* ---------- moments strip ---------- */
+  .moments-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1.1rem; }
+  @media (max-width:860px){ .moments-grid{ grid-template-columns:repeat(2, 1fr); } }
+  .moment-tile{ border-radius:20px; overflow:hidden; box-shadow:var(--shadow-sm); background:var(--surface); }
+  .moment-tile svg{ display:block; width:100%; height:auto; }
+  .moment-tile figcaption{ padding:.8rem 1rem 1rem; font-size:.85rem; font-weight:600; }
+
+  /* ---------- programma ---------- */
+  .programma-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; margin-bottom:2.6rem; }
+  @media (max-width:760px){ .programma-grid{ grid-template-columns:1fr; } }
+  .programma-card{ background:var(--surface); border-radius:26px; padding:1.8rem; box-shadow:var(--shadow-sm); }
+  .programma-badge{ display:inline-flex; align-items:center; gap:.5rem; margin-bottom:.6rem; }
+  .programma-badge .dot{ width:2.2rem; height:2.2rem; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+  .programma-badge .dot svg{ width:1.15rem; height:1.15rem; color:var(--olive-deep); }
+  .programma-card h3{ font-size:1.3rem; position:relative; display:inline-block; }
+  .programma-tags{ display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.1rem; }
+
+  .price-card{ background:var(--surface); border-radius:26px; box-shadow:var(--shadow-sm); overflow:hidden; margin-bottom:1.5rem; }
+  .price-card:last-child{ margin-bottom:0; }
+  .price-row{ display:flex; justify-content:space-between; align-items:center; gap:1.2rem; padding:1.3rem 1.7rem; border-bottom:1px solid var(--border); }
+  .price-row:last-child{ border-bottom:none; }
+  .price-row-info h4{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; font-size:1.02rem; margin-bottom:.3rem; }
+  .price-row-info p{ font-size:.9rem; color:var(--text-muted); max-width:40ch; }
+  .price-row-tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.5rem; }
+  .price-row-amount{ text-align:right; flex-shrink:0; }
+  .price-row-amount .num{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.5rem; font-variant-numeric:tabular-nums; color:var(--accent); }
+  .price-row-amount .unit{ display:block; font-size:.75rem; color:var(--text-muted); }
+  @media (max-width:600px){ .price-row{ flex-direction:column; align-items:flex-start; } .price-row-amount{ text-align:left; } }
+
+  .includes-note{ display:flex; align-items:flex-start; gap:.6rem; font-size:.95rem; color:var(--text-muted); margin-bottom:2rem; }
   .includes-note svg{ width:1.2rem; height:1.2rem; margin-top:.15rem; color:var(--accent); flex-shrink:0; }
 
   /* ---------- booking ---------- */
   .booking-panel{
-    background:var(--surface); border:2px solid var(--text); border-radius:16px; padding:2.2rem;
-    box-shadow:7px 7px 0 var(--hard-shadow); display:grid; grid-template-columns:1.3fr 1fr; gap:2rem;
+    background:var(--surface); border-radius:32px; padding:2.4rem;
+    box-shadow:var(--shadow); display:grid; grid-template-columns:1.3fr 1fr; gap:2rem;
   }
-  @media (max-width:800px){ .booking-panel{ grid-template-columns:1fr; padding:1.5rem; } }
+  @media (max-width:800px){ .booking-panel{ grid-template-columns:1fr; padding:1.6rem; border-radius:24px; } }
   .field{ display:flex; flex-direction:column; gap:.4rem; margin-bottom:1.1rem; }
   .field label{ font-size:.85rem; font-weight:600; }
   .field input, .field select, .field textarea{
-    font-family:'Schibsted Grotesk', sans-serif; font-size:.98rem; padding:.7rem .85rem;
-    border:2px solid var(--border); border-radius:8px; background:var(--surface-2); color:var(--text);
+    font-family:'Schibsted Grotesk', sans-serif; font-size:.98rem; padding:.75rem .95rem;
+    border:2px solid var(--border); border-radius:14px; background:var(--bg); color:var(--text);
     width:100%;
   }
-  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--ocean); }
+  .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--accent); }
   .field-row{ display:flex; gap:1rem; }
   .field-row .field{ flex:1; }
   .summary-card{
-    background:var(--bg-alt); border:2px dashed var(--text); border-radius:12px; padding:1.4rem;
+    background:var(--bg-alt); border-radius:22px; padding:1.5rem;
     display:flex; flex-direction:column; gap:.9rem; align-self:start; position:sticky; top:6rem;
   }
   .summary-line{ display:flex; justify-content:space-between; font-size:.92rem; gap:1rem; }
   .summary-line span:last-child{ text-align:right; font-weight:600; }
-  .summary-total{ display:flex; justify-content:space-between; align-items:baseline; border-top:2px solid var(--text); padding-top:.8rem; margin-top:.2rem; }
-  .summary-total strong{ font-family:'Bungee', sans-serif; font-size:1.5rem; font-variant-numeric:tabular-nums; }
+  .summary-total{ display:flex; justify-content:space-between; align-items:baseline; border-top:2px solid var(--border); padding-top:.8rem; margin-top:.2rem; }
+  .summary-total strong{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.5rem; font-variant-numeric:tabular-nums; color:var(--accent); }
   .form-note{ font-size:.82rem; color:var(--text-muted); }
   #booking-status{ font-size:.88rem; margin-top:.5rem; min-height:1.2rem; }
   #booking-status.error{ color:var(--accent); }
 
   /* ---------- map ---------- */
-  .map-wrap{ background:var(--ocean); border:2px solid var(--text); border-radius:16px; padding:1.5rem; box-shadow:7px 7px 0 var(--hard-shadow); }
+  .map-wrap{ background:var(--olive-deep); border-radius:28px; padding:1.5rem; box-shadow:var(--shadow-sm); }
   .map-wrap svg{ width:100%; height:auto; display:block; }
   .map-legend{ display:flex; flex-wrap:wrap; gap:1.4rem; margin-top:1.6rem; }
   .map-legend-item{ display:flex; align-items:flex-start; gap:.6rem; max-width:15rem; }
-  .map-legend-item .dot{ width:.85rem; height:.85rem; border-radius:50%; margin-top:.35rem; flex-shrink:0; border:2px solid var(--text); }
+  .map-legend-item .dot{ width:.85rem; height:.85rem; border-radius:50%; margin-top:.35rem; flex-shrink:0; }
   .map-legend-item strong{ display:block; font-size:.95rem; }
   .map-legend-item small{ color:var(--text-muted); font-size:.85rem; }
 
   /* ---------- weligama ---------- */
   .weligama-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:start; }
   @media (max-width:800px){ .weligama-grid{ grid-template-columns:1fr; } }
-  .stat-line{ display:flex; justify-content:space-between; padding-block:.7rem; border-bottom:1.5px solid var(--border); font-size:.95rem; }
+  .stat-line{ display:flex; justify-content:space-between; padding-block:.7rem; border-bottom:1px solid var(--border); font-size:.95rem; }
   .stat-line strong{ font-variant-numeric:tabular-nums; }
 
   /* ---------- faq ---------- */
   .faq-list{ display:flex; flex-direction:column; gap:.8rem; max-width:70ch; }
-  details.faq-item{ border:2px solid var(--text); border-radius:10px; background:var(--surface); padding:0; }
+  details.faq-item{ border-radius:18px; background:var(--surface); box-shadow:var(--shadow-sm); padding:0; }
   details.faq-item summary{
-    list-style:none; cursor:pointer; padding:1.1rem 1.4rem; font-weight:700; font-size:1rem;
+    list-style:none; cursor:pointer; padding:1.15rem 1.4rem; font-weight:700; font-size:1rem;
     display:flex; justify-content:space-between; align-items:center; gap:1rem;
   }
   details.faq-item summary::-webkit-details-marker{ display:none; }
-  .faq-icon{ flex-shrink:0; width:1.4rem; height:1.4rem; border:2px solid var(--text); border-radius:50%; position:relative; }
-  .faq-icon::before,.faq-icon::after{ content:""; position:absolute; background:var(--text); top:50%; left:50%; }
+  .faq-icon{ flex-shrink:0; width:1.4rem; height:1.4rem; border-radius:50%; background:var(--bg-alt); position:relative; }
+  .faq-icon::before,.faq-icon::after{ content:""; position:absolute; background:var(--olive-deep); top:50%; left:50%; }
   .faq-icon::before{ width:.6rem; height:2px; transform:translate(-50%,-50%); }
   .faq-icon::after{ width:2px; height:.6rem; transform:translate(-50%,-50%); transition:transform .15s ease; }
   details[open] .faq-icon::after{ transform:translate(-50%,-50%) scaleY(0); }
-  details.faq-item .faq-body{ padding:0 1.4rem 1.2rem; font-family:'Fraunces', Georgia, serif; color:var(--text-muted); font-size:1rem; }
+  details.faq-item .faq-body{ padding:0 1.4rem 1.3rem; color:var(--text-muted); font-size:.98rem; }
 
   /* ---------- footer ---------- */
-  .site-footer{ background:var(--ocean-deep); color:var(--surface); padding-block:3.5rem 2.5rem; }
+  .site-footer{ background:var(--olive-deep); color:#F5EEDC; padding-block:3.5rem 2.5rem; border-radius:32px 32px 0 0; margin-top:2rem; }
   .site-footer a{ color:inherit; }
   .footer-grid{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:2.5rem; }
-  .footer-brand strong{ font-family:'Bungee', sans-serif; font-size:1.25rem; display:block; margin-bottom:.5rem; }
+  .footer-brand strong{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; font-size:1.25rem; display:block; margin-bottom:.5rem; }
   .footer-contact{ display:flex; flex-direction:column; gap:.7rem; font-size:.95rem; }
   .footer-contact a{ display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; }
   .footer-contact svg{ width:1.1rem; height:1.1rem; }
-  .footer-bottom{ margin-top:2.8rem; padding-top:1.6rem; border-top:1px solid rgba(251,243,225,0.25); font-size:.82rem; color:rgba(251,243,225,0.7); display:flex; flex-wrap:wrap; justify-content:space-between; gap:.6rem; }
+  .footer-bottom{ margin-top:2.8rem; padding-top:1.6rem; border-top:1px solid rgba(245,238,220,0.2); font-size:.82rem; color:rgba(245,238,220,0.65); display:flex; flex-wrap:wrap; justify-content:space-between; gap:.6rem; }
 </style>
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
+<div class="nav-outer">
+  <div class="nav-pill">
     <a href="#top" class="logo">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18c3-4 6-2 9-6s6-2 9-6"/><path d="M3 12c3-4 6-2 9-6"/></svg></span>
       <strong>Lahiru Prasad</strong>
-      <span>Surf lessons in Weligama</span>
     </a>
     <nav>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#welcome">Welcome</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#lessons">Lessons</a></li>
-        <li><a href="#book">Book</a></li>
         <li><a href="#map">Map</a></li>
         <li><a href="#weligama">Weligama</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -432,284 +428,359 @@
       <a class="icon-link" id="instagram-link-1" href="#" target="_blank" rel="noopener" aria-label="Lahiru's Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
       </a>
+      <a href="#book" class="btn small nav-cta">Book now</a>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </div>
-</header>
+</div>
 
 <main id="top">
 
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap">
+    <div class="hero-media">
+      <svg class="bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--rose)"/>
+            <stop offset="55%" stop-color="var(--accent-2)"/>
+            <stop offset="100%" stop-color="var(--accent)"/>
+          </linearGradient>
+          <linearGradient id="heroScrim" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--olive-deep)" stop-opacity="0.55"/>
+            <stop offset="45%" stop-color="var(--olive-deep)" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="var(--olive-deep)" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="700" fill="url(#heroSky)"/>
+        <circle cx="620" cy="260" r="150" fill="#FFF8EE" opacity="0.9"/>
+        <path d="M0,430 C150,380 300,460 450,410 C600,360 750,440 900,400 C1000,375 1100,395 1200,385 L1200,700 L0,700 Z" fill="var(--khaki)"/>
+        <path d="M0,480 C150,440 300,500 450,465 C600,430 750,490 900,460 C1000,442 1100,458 1200,450 L1200,700 L0,700 Z" fill="var(--sage)"/>
+        <path d="M0,540 C150,510 300,555 450,530 C600,505 750,550 900,528 C1000,514 1100,524 1200,518 L1200,700 L0,700 Z" fill="var(--olive-deep)"/>
+        <rect width="1200" height="700" fill="url(#heroScrim)"/>
+      </svg>
+      <div class="hero-icon-rail">
+        <a class="icon-link" id="whatsapp-link-hero" href="#" target="_blank" rel="noopener" aria-label="Message Lahiru on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1 .1 1.4-.1.4-.2 1.2-1.1 1.3-1.4.1-.3.1-.6.1-.6-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.5c1.4.8 3 1.2 4.6 1.2h.5c5.5 0 10-4.5 10-10s-4.5-9.7-10-9.7zm.5 18.2h-.5c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.9.9-2.8-.2-.3C4.5 15.2 4 13.6 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8.2-8.5 8.2z"/></svg>
+        </a>
+        <a class="icon-link" id="instagram-link-hero" href="#" target="_blank" rel="noopener" aria-label="Lahiru's Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+      </div>
+      <div class="hero-content">
         <h1>Learn to surf in Weligama, Sri Lanka</h1>
         <p class="hero-sub">Private and group surf lessons with Lahiru Prasad, a local instructor who has surfed the south coast for more than half his life.</p>
         <div class="hero-cta-row">
           <a href="#book" class="btn">Book a lesson</a>
           <a href="#lessons" class="btn ghost">See prices</a>
         </div>
-        <div class="hero-facts">
-          <div class="hero-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>10+ years teaching in Weligama</div>
-          <div class="hero-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4-8 4 4 4-6 6 10" /></svg>Beginner to advanced</div>
-          <div class="hero-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>Born in Ahangama, based in Weligama</div>
-        </div>
       </div>
-      <div class="sun-wrap" aria-hidden="true">
-        <svg viewBox="0 0 400 400" overflow="visible">
-          <defs>
-            <radialGradient id="sunGrad" cx="50%" cy="45%" r="60%">
-              <stop offset="0%" stop-color="var(--accent-2)"/>
-              <stop offset="100%" stop-color="var(--accent)"/>
-            </radialGradient>
-            <clipPath id="sunClip"><circle cx="200" cy="200" r="150"/></clipPath>
-          </defs>
-          <g class="cloud-drift cloud-a" fill="var(--surface-2)" opacity="0.8">
-            <ellipse cx="40" cy="60" rx="30" ry="14"/><ellipse cx="65" cy="52" rx="20" ry="12"/><ellipse cx="15" cy="52" rx="18" ry="10"/>
-          </g>
-          <g class="cloud-drift cloud-b" fill="var(--surface-2)" opacity="0.6">
-            <ellipse cx="330" cy="100" rx="26" ry="12"/><ellipse cx="352" cy="94" rx="16" ry="9"/>
-          </g>
-          <circle cx="200" cy="200" r="150" fill="url(#sunGrad)"/>
-          <g clip-path="url(#sunClip)" opacity="0.85">
-            <rect x="0" y="150" width="400" height="14" fill="var(--bg)"/>
-            <rect x="0" y="185" width="400" height="10" fill="var(--bg)"/>
-            <rect x="0" y="212" width="400" height="18" fill="var(--bg)"/>
-            <rect x="0" y="248" width="400" height="10" fill="var(--bg)"/>
-            <rect x="0" y="278" width="400" height="24" fill="var(--bg)"/>
-            <rect x="0" y="320" width="400" height="30" fill="var(--bg)"/>
-          </g>
-          <circle cx="200" cy="200" r="150" fill="none" stroke="var(--text)" stroke-width="3"/>
-          <path d="M40 330 C 100 300, 140 300, 200 330 S 300 360, 360 330" fill="none" stroke="var(--ocean)" stroke-width="6" stroke-linecap="round"/>
-          <path d="M20 355 C 90 325, 150 325, 200 355 S 310 385, 380 355" fill="none" stroke="var(--ocean-deep)" stroke-width="6" stroke-linecap="round"/>
-        </svg>
-      </div>
-    </div>
-    <div class="wave-band" aria-hidden="true">
-      <svg viewBox="0 0 1600 120" preserveAspectRatio="none">
-        <path d="M0,60 C 100,20 200,100 300,60 C 400,20 500,100 600,60 C 700,20 800,100 900,60 C1000,20 1100,100 1200,60 C1300,20 1400,100 1500,60 C1550,50 1580,55 1600,60 L1600,120 L0,120 Z" fill="var(--ocean)"/>
-        <path d="M800,60 C 900,20 1000,100 1100,60 C1200,20 1300,100 1400,60 C1500,20 1600,100 1700,60 C1800,20 1900,100 2000,60 C2100,20 2200,100 2300,60 C2350,50 2380,55 2400,60 L2400,120 L800,120 Z" fill="var(--ocean)"/>
-      </svg>
     </div>
   </section>
 
-  <section class="section gallery-section" id="gallery">
-    <div class="wrap">
-      <div class="kicker-head">
-        <h2>A taste of Weligama</h2>
-        <p>What a morning in the water here actually looks like, six small scenes from the same stretch of coast.</p>
-      </div>
-      <div class="gallery-grid">
-        <figure class="gallery-tile">
-          <svg viewBox="0 0 300 210" role="img" aria-label="Paddling out at sunrise in Weligama Bay">
-            <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--pink)"/><stop offset="55%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--ocean)"/></linearGradient></defs>
-            <rect width="300" height="210" fill="url(#g1)"/>
-            <circle cx="150" cy="80" r="34" fill="#FFFBF2" opacity="0.9"/>
-            <path d="M0,150 C60,130 100,165 150,145 C200,125 240,160 300,140 L300,210 L0,210 Z" fill="var(--ocean-deep)"/>
-            <path d="M120,132 l30,-10 6,10 -30,11 z" fill="#0B3D39"/>
-          </svg>
-          <figcaption><strong>Sunrise paddle out</strong><span>First light, flat glassy bay, before the wind gets up.</span></figcaption>
-        </figure>
-        <figure class="gallery-tile">
-          <svg viewBox="0 0 300 210" role="img" aria-label="Fresh coconuts on the sand after a lesson">
-            <rect width="300" height="210" fill="var(--bg-alt)"/>
-            <path d="M0,210 L0,175 C80,160 220,160 300,175 L300,210 Z" fill="#F1D9A0"/>
-            <g transform="translate(105,95)"><ellipse rx="34" ry="30" fill="#FFFBF2" stroke="#0B3D39" stroke-width="3"/><ellipse rx="34" ry="30" fill="none" stroke="var(--palm)" stroke-width="2" stroke-dasharray="3 5"/><rect x="-3" y="-38" width="6" height="16" rx="3" fill="var(--palm)"/></g>
-            <g transform="translate(190,110) rotate(12)"><ellipse rx="30" ry="26" fill="#FFFBF2" stroke="#0B3D39" stroke-width="3"/><rect x="-3" y="-33" width="6" height="14" rx="3" fill="var(--palm)"/></g>
-            <path d="M40,60 C70,20 110,15 140,45" fill="none" stroke="var(--palm)" stroke-width="10" stroke-linecap="round"/>
-          </svg>
-          <figcaption><strong>Fresh coconuts</strong><span>Included after every lesson, cracked open on the sand.</span></figcaption>
-        </figure>
-        <figure class="gallery-tile">
-          <svg viewBox="0 0 300 210" role="img" aria-label="Tuktuk ride along the coast road to a surf spot">
-            <rect width="300" height="210" fill="var(--ocean)"/>
-            <rect y="150" width="300" height="60" fill="#3A3A3A"/>
-            <rect y="150" width="300" height="6" fill="#FFFBF2" opacity="0.6"/>
-            <path d="M20,30 C40,10 55,15 60,35 L55,70 L15,70 Z" fill="var(--palm)"/>
-            <path d="M260,20 C280,0 295,5 300,25 L295,65 L255,65 Z" fill="var(--palm)"/>
-            <g transform="translate(150,120)">
-              <rect x="-38" y="-28" width="76" height="34" rx="10" fill="var(--accent-2)" stroke="#0B3D39" stroke-width="3"/>
-              <rect x="-30" y="-46" width="60" height="22" rx="8" fill="#FFFBF2" stroke="#0B3D39" stroke-width="3"/>
-              <circle cx="-24" cy="10" r="11" fill="#0B3D39"/>
-              <circle cx="24" cy="10" r="11" fill="#0B3D39"/>
-            </g>
-          </svg>
-          <figcaption><strong>Tuktuk to the break</strong><span>Guided tours reach reef and beach breaks up and down the coast.</span></figcaption>
-        </figure>
-        <figure class="gallery-tile">
-          <svg viewBox="0 0 300 210" role="img" aria-label="Waxing a surfboard before a lesson">
-            <rect width="300" height="210" fill="var(--bg-alt)"/>
-            <g transform="translate(150,105) rotate(-8)">
-              <ellipse rx="22" ry="95" fill="#FFFBF2" stroke="#0B3D39" stroke-width="3"/>
-              <ellipse rx="22" ry="95" fill="none" stroke="var(--pink)" stroke-width="3" stroke-dasharray="0 0 40 200" transform="rotate(90)"/>
-              <line x1="0" y1="-95" x2="0" y2="95" stroke="var(--ocean)" stroke-width="2" opacity="0.5"/>
-            </g>
-            <g transform="translate(215,150)"><rect x="-16" y="-8" width="32" height="16" rx="4" fill="var(--accent-2)" stroke="#0B3D39" stroke-width="2"/></g>
-            <path d="M235,140 q10,-14 24,-6" fill="none" stroke="var(--palm)" stroke-width="4" stroke-linecap="round"/>
-          </svg>
-          <figcaption><strong>Waxing up</strong><span>A board matched to your level, ready before you are.</span></figcaption>
-        </figure>
-        <figure class="gallery-tile">
-          <svg viewBox="0 0 300 210" role="img" aria-label="Riding a wave off Weligama's sandbar">
-            <defs><linearGradient id="g5" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--ocean)"/><stop offset="100%" stop-color="var(--ocean-deep)"/></linearGradient></defs>
-            <rect width="300" height="210" fill="url(#g5)"/>
-            <path d="M0,120 C50,90 90,150 150,115 C210,80 250,140 300,110 L300,210 L0,210 Z" fill="#FFFBF2" opacity="0.95"/>
-            <path d="M0,140 C50,115 90,165 150,138 C210,112 250,158 300,132 L300,210 L0,210 Z" fill="url(#g5)"/>
-            <g transform="translate(168,108) rotate(-30)"><ellipse rx="9" ry="42" fill="var(--accent)" stroke="#0B3D39" stroke-width="2.5"/></g>
-          </svg>
-          <figcaption><strong>Riding the line</strong><span>Long, soft walls off the sandbar, perfect for turns.</span></figcaption>
-        </figure>
-        <figure class="gallery-tile">
-          <svg viewBox="0 0 300 210" role="img" aria-label="Golden hour over Weligama Bay">
-            <defs><linearGradient id="g6" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--pink)"/><stop offset="45%" stop-color="var(--accent)"/><stop offset="100%" stop-color="var(--accent-2)"/></linearGradient></defs>
-            <rect width="300" height="210" fill="url(#g6)"/>
-            <circle cx="150" cy="120" r="46" fill="#FFFBF2" opacity="0.85"/>
-            <path d="M0,165 C60,150 100,178 150,163 C200,148 240,172 300,158 L300,210 L0,210 Z" fill="#0B3D39" opacity="0.55"/>
-            <path d="M30,210 L30,110 M30,110 C15,100 15,80 30,75 M30,110 C45,100 45,80 30,75 M30,110 C10,95 45,95 30,110" fill="none" stroke="#0B3D39" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
-          </svg>
-          <figcaption><strong>Golden hour</strong><span>The last session of the day, when the bay turns the color of a mango.</span></figcaption>
-        </figure>
-      </div>
-      <p class="gallery-note">Real photos and video from Lahiru's own sessions will slot in here, this is the color and mood they'll sit in.</p>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>catch a wave</span><span>catch a wave</span><span>catch a wave</span><span>catch a wave</span><span>catch a wave</span><span>catch a wave</span>
+      <span>catch a wave</span><span>catch a wave</span><span>catch a wave</span><span>catch a wave</span><span>catch a wave</span><span>catch a wave</span>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="about">
-    <div class="wrap about-grid">
-      <div class="portrait-frame" aria-hidden="true">
-        <svg viewBox="0 0 300 380" role="img" aria-label="Illustration of Lahiru surfing at sunset">
-          <defs>
-            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="var(--accent-2)"/>
-              <stop offset="100%" stop-color="var(--accent)"/>
-            </linearGradient>
-          </defs>
-          <rect width="300" height="380" fill="url(#skyGrad)"/>
-          <circle cx="150" cy="150" r="70" fill="var(--surface-2)" opacity="0.9"/>
-          <path d="M0,240 C 60,210 100,260 150,235 C 200,210 240,255 300,225 L300,380 L0,380 Z" fill="var(--ocean)"/>
-          <path d="M0,270 C 60,245 100,290 150,268 C 200,245 240,285 300,260 L300,380 L0,380 Z" fill="var(--ocean-deep)"/>
-          <g transform="translate(140,175) rotate(-18)">
-            <ellipse cx="0" cy="55" rx="14" ry="60" fill="var(--surface-2)" stroke="var(--text)" stroke-width="3"/>
-            <path d="M-16 0 L16 0 L4 -70 L-4 -70 Z" fill="var(--text)"/>
-            <circle cx="0" cy="-78" r="12" fill="var(--surface-2)" stroke="var(--text)" stroke-width="3"/>
-          </g>
-        </svg>
-      </div>
+  <div class="wrap facts-strip">
+    <div class="fact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>10+ years teaching in Weligama</div>
+    <div class="fact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4-8 4 4 4-6 6 10" /></svg>Beginner to advanced</div>
+    <div class="fact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>Born in Ahangama, based in Weligama</div>
+  </div>
+
+  <div class="wrap icon-strip" aria-hidden="true">
+    <div class="icon-tile" style="background:var(--accent);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#FFF8EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg>
+    </div>
+    <div class="icon-tile" style="background:var(--olive-deep);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-2)" stroke-width="2.2" stroke-linecap="round"><path d="M2 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"/><path d="M2 10c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"/></svg>
+    </div>
+    <div class="icon-tile" style="background:var(--accent-2);">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2c2 2.6 3 6.2 3 9.8s-1 7.2-3 9.8c-2-2.6-3-6.2-3-9.8s1-7.2 3-9.8z" fill="var(--olive-deep)"/></svg>
+    </div>
+    <div class="icon-tile" style="background:var(--rose);">
+      <svg viewBox="0 0 24 24" fill="#FFF8EE"><path d="M12,3 14.23,8.93 20.56,9.22 15.61,13.17 17.29,19.28 12,15.8 6.71,19.28 8.39,13.17 3.44,9.22 9.77,8.93 Z"/></svg>
+    </div>
+    <div class="icon-tile" style="background:var(--sage);">
+      <svg viewBox="0 0 24 24"><path d="M4 11 Q12 2.5 20 11 Z" fill="var(--olive-deep)"/><line x1="12" y1="10" x2="12" y2="21" stroke="var(--olive-deep)" stroke-width="2.1" stroke-linecap="round"/></svg>
+    </div>
+    <div class="icon-tile" style="background:var(--khaki);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--olive-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c2-5 4.5-5 6-9 1.5 4 4 4 6 9"/><path d="M12 18c1-3 2.5-3 3.5-5.5C16.5 15 18 15 19 18"/></svg>
+    </div>
+  </div>
+
+  <!-- ================= WELCOME + COLLAGE ================= -->
+  <section class="section" id="welcome">
+    <div class="wrap welcome-grid">
       <div>
         <div class="kicker-head">
-          <h2>Meet Lahiru Prasad</h2>
+          <span class="script-tag script">welcome to</span>
+          <h2>Surfing in Weligama, the easy way in</h2>
+          <p>No crowds to fight for a wave, no rush. Just a long, soft bay, a board suited to your level, and someone who grew up reading this exact stretch of coast.</p>
+        </div>
+        <a href="#lessons" class="btn">See lessons & prices</a>
+      </div>
+      <div class="collage">
+        <figure class="collage-img c1">
+          <svg viewBox="0 0 300 220" role="img" aria-label="Paddling out at sunrise in Weligama Bay">
+            <defs><linearGradient id="w1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--rose)"/><stop offset="60%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--khaki)"/></linearGradient></defs>
+            <rect width="300" height="220" fill="url(#w1)"/>
+            <circle cx="150" cy="85" r="36" fill="#FFF8EE" opacity="0.9"/>
+            <path d="M0,150 C60,130 100,168 150,146 C200,124 240,160 300,142 L300,220 L0,220 Z" fill="var(--olive-deep)"/>
+            <path d="M118,132 l32,-11 6,11 -32,12 z" fill="#FFF8EE"/>
+          </svg>
+        </figure>
+        <figure class="collage-img c2">
+          <svg viewBox="0 0 300 220" role="img" aria-label="Tuktuk ride to a surf spot along the coast">
+            <rect width="300" height="220" fill="var(--sage)"/>
+            <rect y="158" width="300" height="62" fill="#3B3A2C"/>
+            <rect y="158" width="300" height="6" fill="#FFF8EE" opacity="0.6"/>
+            <g transform="translate(150,128)">
+              <rect x="-40" y="-30" width="80" height="36" rx="12" fill="var(--accent)" stroke="var(--olive-deep)" stroke-width="3"/>
+              <rect x="-32" y="-50" width="64" height="24" rx="9" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/>
+              <circle cx="-26" cy="10" r="12" fill="var(--olive-deep)"/>
+              <circle cx="26" cy="10" r="12" fill="var(--olive-deep)"/>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHAT YOU'LL GET ================= -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="kicker-head">
+        <span class="script-tag script">what you get</span>
+        <h2>Everything built around your level</h2>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <svg viewBox="0 0 300 190" role="img" aria-label="Surf coaching in Weligama Bay">
+            <rect width="300" height="190" fill="var(--accent-2)"/>
+            <path d="M0,120 C70,95 110,140 170,115 C220,95 260,130 300,110 L300,190 L0,190 Z" fill="var(--khaki)"/>
+            <path d="M0,145 C70,125 110,160 170,140 C220,122 260,150 300,132 L300,190 L0,190 Z" fill="var(--olive-deep)"/>
+          </svg>
+          <div class="offer-card-body">
+            <h3>Surf coaching</h3>
+            <p>Beginner and intermediate lessons, one on one or in a small group, built around where you're at.</p>
+          </div>
+        </div>
+        <div class="offer-card">
+          <svg viewBox="0 0 300 190" role="img" aria-label="Guided surf tours along the south coast">
+            <rect width="300" height="190" fill="var(--rose)"/>
+            <path d="M0,130 C60,105 100,145 150,125 C200,105 250,140 300,120 L300,190 L0,190 Z" fill="var(--sage)"/>
+            <circle cx="230" cy="70" r="26" fill="#FFF8EE" opacity="0.85"/>
+          </svg>
+          <div class="offer-card-body">
+            <h3>Guided tours</h3>
+            <p>Tuktuk transport to reef and beach breaks from Madiha to Kabalana, for intermediate surfers ready to explore.</p>
+          </div>
+        </div>
+        <div class="offer-card">
+          <svg viewBox="0 0 300 190" role="img" aria-label="Everything included in a surf lesson">
+            <rect width="300" height="190" fill="var(--sage)"/>
+            <g transform="translate(105,95)"><ellipse rx="32" ry="28" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/><rect x="-3" y="-36" width="6" height="15" rx="3" fill="var(--olive-deep)"/></g>
+            <g transform="translate(190,110) rotate(10)"><ellipse rx="28" ry="24" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/><rect x="-3" y="-31" width="6" height="13" rx="3" fill="var(--olive-deep)"/></g>
+          </svg>
+          <div class="offer-card-body">
+            <h3>Everything included</h3>
+            <p>A rash guard, a board matched to your level, and a fresh coconut after every single lesson.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT LAHIRU ================= -->
+  <section class="section" id="about">
+    <div class="wrap about-grid" style="display:grid; grid-template-columns:.85fr 1.15fr; gap:3rem; align-items:center;">
+      <figure style="margin:0; border-radius:28px; overflow:hidden; box-shadow:var(--shadow);">
+        <svg viewBox="0 0 300 380" role="img" aria-label="Illustration of Lahiru surfing at sunset">
+          <defs><linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--accent-2)"/><stop offset="100%" stop-color="var(--accent)"/></linearGradient></defs>
+          <rect width="300" height="380" fill="url(#skyGrad)"/>
+          <circle cx="150" cy="150" r="70" fill="#FFF8EE" opacity="0.9"/>
+          <path d="M0,240 C 60,210 100,260 150,235 C 200,210 240,255 300,225 L300,380 L0,380 Z" fill="var(--sage)"/>
+          <path d="M0,270 C 60,245 100,290 150,268 C 200,245 240,285 300,260 L300,380 L0,380 Z" fill="var(--olive-deep)"/>
+          <g transform="translate(140,175) rotate(-18)">
+            <ellipse cx="0" cy="55" rx="14" ry="60" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/>
+            <path d="M-16 0 L16 0 L4 -70 L-4 -70 Z" fill="var(--olive-deep)"/>
+            <circle cx="0" cy="-78" r="12" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/>
+          </g>
+        </svg>
+      </figure>
+      <div>
+        <div class="kicker-head">
+          <span class="script-tag script">meet your instructor</span>
+          <h2>Lahiru Prasad</h2>
         </div>
         <p class="prose">Lahiru Prasad was born in Ahangama and has spent more than half his life in the water along Sri Lanka's south coast. For the past ten years he has taught surfing in Weligama, one of the most forgiving and rewarding waves in Asia, welcoming students from every corner of the world.</p>
         <p class="prose" style="margin-top:1rem;">His lessons are built for two kinds of surfers: those catching their first wave, and those ready to push into faster sections and sharper positioning. Beyond the bay, Lahiru guides intermediate surfers along the reef and beach breaks stretching from Madiha and Mirissa through Weligama, Midigama, Ahangama and Kabalana, the same stretch of coast he grew up surfing.</p>
-        <div class="badge-row">
-          <span class="pill">Local, born in Ahangama</span>
-          <span class="pill">10+ years teaching in Weligama</span>
-          <span class="pill">Beginner &amp; intermediate coaching</span>
-          <span class="pill">South coast guiding, Madiha to Kabalana</span>
+        <div class="programma-tags" style="margin-top:1.4rem;">
+          <span class="pill p-mustard">Local, born in Ahangama</span>
+          <span class="pill p-rose">10+ years teaching</span>
+          <span class="pill p-sage">Beginner & intermediate</span>
+          <span class="pill p-khaki">South coast guiding</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section alt" id="lessons">
+  <!-- ================= MOMENTS ================= -->
+  <section class="section alt">
     <div class="wrap">
       <div class="kicker-head">
-        <h2>Surf lessons &amp; guided tours</h2>
+        <span class="script-tag script">a taste of it</span>
+        <h2>A morning in the water here</h2>
+      </div>
+      <div class="moments-grid">
+        <figure class="moment-tile">
+          <svg viewBox="0 0 260 200" role="img" aria-label="Fresh coconuts on the sand">
+            <rect width="260" height="200" fill="var(--bg-alt)"/>
+            <path d="M0,200 L0,168 C70,155 190,155 260,168 L260,200 Z" fill="var(--khaki)"/>
+            <g transform="translate(95,88)"><ellipse rx="30" ry="26" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/><rect x="-3" y="-33" width="6" height="14" rx="3" fill="var(--sage)"/></g>
+            <g transform="translate(168,102) rotate(12)"><ellipse rx="26" ry="22" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/><rect x="-3" y="-29" width="6" height="12" rx="3" fill="var(--sage)"/></g>
+          </svg>
+          <figcaption>Fresh coconuts</figcaption>
+        </figure>
+        <figure class="moment-tile">
+          <svg viewBox="0 0 260 200" role="img" aria-label="Waxing a surfboard">
+            <rect width="260" height="200" fill="var(--rose)"/>
+            <g transform="translate(130,100) rotate(-8)"><ellipse rx="20" ry="86" fill="#FFF8EE" stroke="var(--olive-deep)" stroke-width="3"/></g>
+            <g transform="translate(190,140)"><rect x="-14" y="-7" width="28" height="14" rx="4" fill="var(--accent-2)" stroke="var(--olive-deep)" stroke-width="2"/></g>
+          </svg>
+          <figcaption>Waxing up</figcaption>
+        </figure>
+        <figure class="moment-tile">
+          <svg viewBox="0 0 260 200" role="img" aria-label="Riding a wave off Weligama's sandbar">
+            <defs><linearGradient id="m3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--khaki)"/><stop offset="100%" stop-color="var(--olive-deep)"/></linearGradient></defs>
+            <rect width="260" height="200" fill="url(#m3)"/>
+            <path d="M0,110 C45,85 80,140 130,108 C180,76 215,132 260,102 L260,200 L0,200 Z" fill="#FFF8EE" opacity="0.95"/>
+            <g transform="translate(145,98) rotate(-30)"><ellipse rx="8" ry="38" fill="var(--accent)" stroke="var(--olive-deep)" stroke-width="2.5"/></g>
+          </svg>
+          <figcaption>Riding the line</figcaption>
+        </figure>
+        <figure class="moment-tile">
+          <svg viewBox="0 0 260 200" role="img" aria-label="Golden hour over Weligama Bay">
+            <defs><linearGradient id="m4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="var(--rose)"/><stop offset="45%" stop-color="var(--accent)"/><stop offset="100%" stop-color="var(--accent-2)"/></linearGradient></defs>
+            <rect width="260" height="200" fill="url(#m4)"/>
+            <circle cx="130" cy="115" r="42" fill="#FFF8EE" opacity="0.85"/>
+            <path d="M0,155 C55,142 90,166 130,153 C170,140 205,162 260,150 L260,200 L0,200 Z" fill="var(--olive-deep)" opacity="0.6"/>
+          </svg>
+          <figcaption>Golden hour</figcaption>
+        </figure>
+      </div>
+      <p style="margin-top:1.6rem; font-size:.88rem; color:var(--text-muted); font-style:italic;">Real photos and video from Lahiru's own sessions will slot in here, this sets the color and mood they'll sit in.</p>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMMA / LESSONS ================= -->
+  <section class="section" id="lessons">
+    <div class="wrap">
+      <div class="kicker-head">
+        <span class="script-tag script">programma</span>
+        <h2>Surf lessons & guided tours</h2>
         <p>Beginner and intermediate coaching in Weligama, plus guided tours along the south coast for surfers ready to explore beyond the bay.</p>
       </div>
+
+      <div class="programma-grid">
+        <div class="programma-card">
+          <span class="programma-badge"><span class="dot" style="background:var(--accent-2);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18c3-4 6-2 9-6s6-2 9-6"/></svg></span></span>
+          <h3>Surfing <span class="script" style="color:var(--accent); font-size:1.3rem;">~</span></h3>
+          <div class="programma-tags">
+            <span class="pill p-mustard">Beginner friendly</span>
+            <span class="pill p-rose">Small groups</span>
+            <span class="pill p-sage">One on one available</span>
+            <span class="pill p-khaki">Board & rashguard included</span>
+          </div>
+        </div>
+        <div class="programma-card">
+          <span class="programma-badge"><span class="dot" style="background:var(--rose);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></span></span>
+          <h3>Guiding <span class="script" style="color:var(--accent); font-size:1.3rem;">~</span></h3>
+          <div class="programma-tags">
+            <span class="pill p-sage">Intermediate only</span>
+            <span class="pill p-khaki">Tuktuk included</span>
+            <span class="pill p-mustard">Reef & beach breaks</span>
+            <span class="pill p-rose">Madiha to Kabalana</span>
+          </div>
+        </div>
+      </div>
+
       <p class="includes-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
         Every lesson includes a rash guard, a surfboard suited to your level, and a fresh coconut when you're back on the sand.
       </p>
-      <div class="lesson-group">
-        <h3>Surf lessons, Weligama</h3>
-        <div class="ticket">
-          <div class="ticket-info">
+
+      <div class="price-card">
+        <div class="price-row">
+          <div class="price-row-info">
             <h4>Private lesson, beginner</h4>
             <p>15 minutes on the beach for an introduction, warm up and wave theory, then 60 minutes one on one in the water.</p>
-            <div class="ticket-tags"><span class="pill">1 person</span><span class="pill">Beginner</span></div>
+            <div class="price-row-tags"><span class="pill p-mustard">1 person</span></div>
           </div>
-          <div class="ticket-stub">
-            <span class="ticket-price">$25</span>
-            <span class="ticket-unit">USD, per lesson</span>
-            <span class="ticket-duration">75 minutes</span>
-          </div>
+          <div class="price-row-amount"><span class="num">$25</span><span class="unit">75 min</span></div>
         </div>
-        <div class="ticket">
-          <div class="ticket-info">
+        <div class="price-row">
+          <div class="price-row-info">
             <h4>Private lesson, intermediate</h4>
             <p>90 minutes fully in the water, one on one, working on take off timing, positioning and turning.</p>
-            <div class="ticket-tags"><span class="pill">1 person</span><span class="pill">Intermediate</span></div>
+            <div class="price-row-tags"><span class="pill p-mustard">1 person</span></div>
           </div>
-          <div class="ticket-stub">
-            <span class="ticket-price">$35</span>
-            <span class="ticket-unit">USD, per lesson</span>
-            <span class="ticket-duration">90 minutes</span>
-          </div>
+          <div class="price-row-amount"><span class="num">$35</span><span class="unit">90 min</span></div>
         </div>
-        <div class="ticket">
-          <div class="ticket-info">
+        <div class="price-row">
+          <div class="price-row-info">
             <h4>Group lesson, beginner</h4>
             <p>The same beach briefing and water time as the private beginner lesson, shared with a small group.</p>
-            <div class="ticket-tags"><span class="pill">2 to 4 people</span><span class="pill">Beginner</span></div>
+            <div class="price-row-tags"><span class="pill p-sage">2 to 4 people</span></div>
           </div>
-          <div class="ticket-stub">
-            <span class="ticket-price">$20</span>
-            <span class="ticket-unit">USD, per person</span>
-            <span class="ticket-duration">75 minutes</span>
-          </div>
+          <div class="price-row-amount"><span class="num">$20</span><span class="unit">per person, 75 min</span></div>
         </div>
-        <div class="ticket">
-          <div class="ticket-info">
+        <div class="price-row">
+          <div class="price-row-info">
             <h4>Group lesson, intermediate</h4>
             <p>90 minutes in the water with a small group, coached together on positioning and turning.</p>
-            <div class="ticket-tags"><span class="pill">2 to 4 people</span><span class="pill">Intermediate</span></div>
+            <div class="price-row-tags"><span class="pill p-sage">2 to 4 people</span></div>
           </div>
-          <div class="ticket-stub">
-            <span class="ticket-price">$30</span>
-            <span class="ticket-unit">USD, per person</span>
-            <span class="ticket-duration">90 minutes</span>
-          </div>
+          <div class="price-row-amount"><span class="num">$30</span><span class="unit">per person, 90 min</span></div>
         </div>
       </div>
-      <div class="lesson-group">
-        <h3>Guided surf tours, south coast</h3>
-        <p class="prose" style="margin-bottom:1.3rem; color:var(--text-muted); font-size:0.98rem;">For intermediate surfers only. Tuktuk transport is included to reef and beach breaks around Madiha, Mirissa, Weligama, Midigama, Ahangama and Kabalana, chosen on the day to match the swell.</p>
-        <div class="ticket">
-          <div class="ticket-info">
+
+      <div class="price-card">
+        <div class="price-row">
+          <div class="price-row-info">
             <h4>Private guiding</h4>
             <p>120 minutes exploring the best break of the day with Lahiru, one on one, tuktuk included.</p>
-            <div class="ticket-tags"><span class="pill">1 person</span><span class="pill">Intermediate</span><span class="pill">Tuktuk included</span></div>
+            <div class="price-row-tags"><span class="pill p-khaki">1 person</span><span class="pill p-rose">Intermediate</span></div>
           </div>
-          <div class="ticket-stub">
-            <span class="ticket-price">$45</span>
-            <span class="ticket-unit">USD, per tour</span>
-            <span class="ticket-duration">120 minutes</span>
-          </div>
+          <div class="price-row-amount"><span class="num">$45</span><span class="unit">120 min</span></div>
         </div>
-        <div class="ticket">
-          <div class="ticket-info">
+        <div class="price-row">
+          <div class="price-row-info">
             <h4>Group guiding</h4>
             <p>120 minutes at reef and beach breaks around the south coast, in a small group, tuktuk included.</p>
-            <div class="ticket-tags"><span class="pill">2 to 4 people</span><span class="pill">Intermediate</span><span class="pill">Tuktuk included</span></div>
+            <div class="price-row-tags"><span class="pill p-khaki">2 to 4 people</span><span class="pill p-rose">Intermediate</span></div>
           </div>
-          <div class="ticket-stub">
-            <span class="ticket-price">$40</span>
-            <span class="ticket-unit">USD, per person</span>
-            <span class="ticket-duration">120 minutes</span>
-          </div>
+          <div class="price-row-amount"><span class="num">$40</span><span class="unit">per person, 120 min</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="book">
+  <!-- ================= BOOKING ================= -->
+  <section class="section alt" id="book">
     <div class="wrap">
       <div class="kicker-head">
+        <span class="script-tag script">book now</span>
         <h2>Book a lesson</h2>
         <p>Choose a lesson, pick a date, and send the request straight to Lahiru on WhatsApp. He'll confirm availability and get you sorted.</p>
       </div>
+
       <form class="booking-panel" id="booking-form">
         <div>
           <div class="field">
@@ -736,6 +807,7 @@
           </div>
           <div id="booking-status" role="status"></div>
         </div>
+
         <div class="summary-card">
           <div>
             <div class="summary-line"><span>Lesson</span><span id="sum-lesson">Private lesson, beginner</span></div>
@@ -752,37 +824,43 @@
     </div>
   </section>
 
-  <section class="section alt" id="map">
+  <!-- ================= MAP ================= -->
+  <section class="section" id="map">
     <div class="wrap">
       <div class="kicker-head">
+        <span class="script-tag script">where we surf</span>
         <h2>Surf spots along the south coast</h2>
         <p>Weligama is home base, a long sheltered beach break. The guided tours reach further along the coast when the swell calls for it.</p>
       </div>
+
       <div class="map-wrap">
         <svg viewBox="0 0 900 340" role="img" aria-label="Stylised map of surf spots along Sri Lanka's south coast">
           <defs>
             <linearGradient id="oceanGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="var(--ocean)"/>
-              <stop offset="30%" stop-color="var(--ocean-deep)"/>
-              <stop offset="100%" stop-color="var(--ocean-deep)"/>
+              <stop offset="0%" stop-color="var(--khaki)"/>
+              <stop offset="30%" stop-color="var(--olive-deep)"/>
+              <stop offset="100%" stop-color="var(--olive-deep)"/>
             </linearGradient>
           </defs>
           <rect width="900" height="340" fill="url(#oceanGrad)"/>
           <path d="M0,90 C 100,120 180,60 280,95 C 380,130 460,75 560,105 C 660,135 740,80 840,100 L900,95 L900,0 L0,0 Z" fill="var(--bg-alt)"/>
           <path d="M0,90 C 100,120 180,60 280,95 C 380,130 460,75 560,105 C 660,135 740,80 840,100 L900,95" fill="none" stroke="var(--text)" stroke-width="3"/>
-          <text x="30" y="45" fill="var(--text)" font-family="Schibsted Grotesk, sans-serif" font-size="16" font-weight="700">SRI LANKA</text>
-          <text x="450" y="300" fill="var(--surface)" font-family="Schibsted Grotesk, sans-serif" font-size="15" opacity="0.75" text-anchor="middle">INDIAN OCEAN</text>
-          <path d="M120,150 L820,190" stroke="var(--surface)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
-          <g font-family="Schibsted Grotesk, sans-serif" font-size="14" fill="#FFFFFF" stroke="var(--ocean-deep)" stroke-width="3" paint-order="stroke">
-            <g transform="translate(120,150)"><circle r="7" fill="var(--accent-2)" stroke="var(--text)" stroke-width="2"/><text x="0" y="-16" text-anchor="middle">Ahangama</text></g>
-            <g transform="translate(260,160)"><circle r="7" fill="var(--accent-2)" stroke="var(--text)" stroke-width="2"/><text x="0" y="26" text-anchor="middle">Kabalana</text></g>
-            <g transform="translate(400,168)"><circle r="7" fill="var(--accent-2)" stroke="var(--text)" stroke-width="2"/><text x="0" y="-16" text-anchor="middle">Midigama</text></g>
-            <g transform="translate(540,176)"><circle r="12" fill="var(--accent)" stroke="var(--text)" stroke-width="3"/><text x="0" y="30" text-anchor="middle" font-weight="700">Weligama</text></g>
-            <g transform="translate(680,183)"><circle r="7" fill="var(--accent-2)" stroke="var(--text)" stroke-width="2"/><text x="0" y="-16" text-anchor="middle">Mirissa</text></g>
-            <g transform="translate(800,190)"><circle r="7" fill="var(--accent-2)" stroke="var(--text)" stroke-width="2"/><text x="0" y="26" text-anchor="middle">Madiha</text></g>
+          <text x="30" y="45" fill="var(--text)" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="800">SRI LANKA</text>
+          <text x="450" y="300" fill="#FFF8EE" font-family="Schibsted Grotesk, sans-serif" font-size="15" opacity="0.75" text-anchor="middle">INDIAN OCEAN</text>
+
+          <path d="M120,150 L820,190" stroke="#FFF8EE" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+
+          <g font-family="Schibsted Grotesk, sans-serif" font-size="14" fill="#FFFFFF" stroke="var(--olive-deep)" stroke-width="3" paint-order="stroke">
+            <g transform="translate(120,150)"><circle r="7" fill="var(--accent-2)" stroke="var(--olive-deep)" stroke-width="2"/><text x="0" y="-16" text-anchor="middle">Ahangama</text></g>
+            <g transform="translate(260,160)"><circle r="7" fill="var(--accent-2)" stroke="var(--olive-deep)" stroke-width="2"/><text x="0" y="26" text-anchor="middle">Kabalana</text></g>
+            <g transform="translate(400,168)"><circle r="7" fill="var(--accent-2)" stroke="var(--olive-deep)" stroke-width="2"/><text x="0" y="-16" text-anchor="middle">Midigama</text></g>
+            <g transform="translate(540,176)"><circle r="12" fill="var(--accent)" stroke="var(--olive-deep)" stroke-width="3"/><text x="0" y="30" text-anchor="middle" font-weight="700">Weligama</text></g>
+            <g transform="translate(680,183)"><circle r="7" fill="var(--accent-2)" stroke="var(--olive-deep)" stroke-width="2"/><text x="0" y="-16" text-anchor="middle">Mirissa</text></g>
+            <g transform="translate(800,190)"><circle r="7" fill="var(--accent-2)" stroke="var(--olive-deep)" stroke-width="2"/><text x="0" y="26" text-anchor="middle">Madiha</text></g>
           </g>
         </svg>
       </div>
+
       <div class="map-legend">
         <div class="map-legend-item"><span class="dot" style="background:var(--accent);"></span><div><strong>Weligama, home base</strong><small>Long, soft beach break. Where every lesson starts.</small></div></div>
         <div class="map-legend-item"><span class="dot" style="background:var(--accent-2);"></span><div><strong>Ahangama &amp; Kabalana</strong><small>Reef and beach breaks a short tuktuk ride west.</small></div></div>
@@ -792,10 +870,12 @@
     </div>
   </section>
 
-  <section class="section" id="weligama">
+  <!-- ================= WELIGAMA ================= -->
+  <section class="section alt" id="weligama">
     <div class="wrap weligama-grid">
       <div>
         <div class="kicker-head">
+          <span class="script-tag script">the bay</span>
           <h2>Surfing in Weligama</h2>
         </div>
         <p class="prose">Weligama means "sandy village," and its wide, curved bay is exactly that: a long stretch of sand wrapped by two headlands that soften almost every swell before it reaches shore. The waves peel slowly and predictably left and right off a sandbar, giving beginners time to find their feet and intermediate surfers a forgiving wall to practice turns on.</p>
@@ -812,9 +892,11 @@
     </div>
   </section>
 
-  <section class="section alt" id="faq">
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
     <div class="wrap">
       <div class="kicker-head">
+        <span class="script-tag script">good to know</span>
         <h2>Questions about surfing here</h2>
       </div>
       <div class="faq-list">
@@ -852,7 +934,7 @@
   <div class="wrap footer-grid">
     <div class="footer-brand">
       <strong>Lahiru Prasad Surf</strong>
-      <p style="max-width:32ch; color:rgba(251,243,225,0.75); font-size:.92rem;">Surf lessons and guided tours in Weligama, on Sri Lanka's south coast.</p>
+      <p style="max-width:32ch; color:rgba(245,238,220,0.75); font-size:.92rem;">Surf lessons and guided tours in Weligama, on Sri Lanka's south coast.</p>
     </div>
     <div class="footer-contact">
       <a href="#" id="whatsapp-link-2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1 .1 1.4-.1.4-.2 1.2-1.1 1.3-1.4.1-.3.1-.6.1-.6-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.2L2 22l4.9-1.5c1.4.8 3 1.2 4.6 1.2h.5c5.5 0 10-4.5 10-10s-4.5-9.7-10-9.7zm.5 18.2h-.5c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.9.9.9-2.8-.2-.3C4.5 15.2 4 13.6 4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8.2-8.5 8.2z"/></svg>WhatsApp Lahiru</a>
@@ -875,13 +957,14 @@
   // TODO: replace with Lahiru's real Instagram profile URL.
   var INSTAGRAM_URL = "https://instagram.com/lahirusurfweligama";
 
-  document.querySelectorAll("#whatsapp-link-1,#whatsapp-link-2").forEach(function(a){
+  document.querySelectorAll("#whatsapp-link-1,#whatsapp-link-2,#whatsapp-link-hero").forEach(function(a){
     a.href = "https://wa.me/" + WHATSAPP_NUMBER;
   });
-  document.querySelectorAll("#instagram-link-1,#instagram-link-2").forEach(function(a){
+  document.querySelectorAll("#instagram-link-1,#instagram-link-2,#instagram-link-hero").forEach(function(a){
     a.href = INSTAGRAM_URL;
   });
 
+  // mobile nav
   var toggle = document.getElementById("nav-toggle");
   var links = document.getElementById("nav-links");
   if (toggle && links){
@@ -897,6 +980,7 @@
     });
   }
 
+  // lessons + booking
   var LESSONS = [
     { id:"priv-beg", label:"Private lesson, beginner", price:25, per:"lesson", duration:"75 minutes", min:1, max:1 },
     { id:"priv-int", label:"Private lesson, intermediate", price:35, per:"lesson", duration:"90 minutes", min:1, max:1 },
