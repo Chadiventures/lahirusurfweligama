@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lahirusurfweligama.com/sitemap.xml
