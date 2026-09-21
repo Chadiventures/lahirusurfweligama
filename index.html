@@ -196,7 +196,10 @@
     --focus:#1768A6;
     color-scheme: light;
   }
-  @media (prefers-color-scheme: dark){
+  /* Phones often default to system dark mode. Keep the warm palette on
+     small screens so mobile does not get the untested near-black theme.
+     Desktop still follows prefers-color-scheme. */
+  @media (prefers-color-scheme: dark) and (min-width: 641px){
     :root:not([data-theme="light"]){
       --bg:#1B140C;
       --bg-alt:#140F09;
@@ -287,7 +290,7 @@
   .pill.p-sage{ background:color-mix(in srgb, var(--sage) 35%, var(--surface)); }
   .pill.p-khaki{ background:color-mix(in srgb, var(--khaki) 40%, var(--surface)); }
   :root[data-theme="dark"] .pill{ color:var(--olive-deep); }
-  @media (prefers-color-scheme:dark){
+  @media (prefers-color-scheme:dark) and (min-width:641px){
     :root:not([data-theme="light"]) .pill{ color:var(--olive-deep); }
   }
 
@@ -624,6 +627,26 @@
   #map, #weligama, #faq, #book{ content-visibility:auto; contain-intrinsic-size:auto 700px; }
 
   @media (max-width:640px){
+    :root, :root[data-theme="dark"]{
+      --bg:#FBF3E4;
+      --bg-alt:#F0E0BC;
+      --surface:#FFFFFF;
+      --surface-2:#FFFCF5;
+      --text:#21180C;
+      --text-muted:#6E6153;
+      --accent:#D57E5D;
+      --accent-ink:#21180C;
+      --accent-2:#E3BC79;
+      --rose:#7F9E93;
+      --sage:#A9C0B8;
+      --khaki:#C99A5B;
+      --olive-deep:#21180C;
+      --border: rgba(33,24,12,0.15);
+      --shadow: 0 20px 44px rgba(33,24,12,0.18);
+      --shadow-sm: 0 10px 22px rgba(33,24,12,0.13);
+      --focus:#1768A6;
+      color-scheme: light;
+    }
     .nav-pill{ padding:.5rem .5rem .5rem .9rem; gap:.4rem; }
     .logo strong{ font-size:.92rem; }
     .nav-cta{ padding:.55rem .9rem; font-size:.82rem; }
