@@ -24,9 +24,12 @@
 <meta name="twitter:description" content="Learn to surf in Weligama, Sri Lanka with local instructor Lahiru Prasad. Beginner and intermediate lessons from $20.">
 <meta name="twitter:image" content="https://lahirusurfweligama.com/bilder/profile.jpg">
 
+<link rel="preload" as="image" href="bilder/v1-poster.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Schibsted+Grotesk:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Schibsted+Grotesk:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Schibsted+Grotesk:wght@400;600;700&display=swap"></noscript>
 
 <script type="application/ld+json">
 {
@@ -246,6 +249,7 @@
     line-height:1.55; padding:0 !important; margin:0; font-size:16px;
   }
   img,svg{ max-width:100%; }
+  img{ height:auto; }
   h1,h2,h3{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; line-height:1.12; text-wrap:balance; margin:0; letter-spacing:-0.01em; }
   p{ margin:0; }
   a{ color:inherit; }
@@ -339,6 +343,7 @@
   .hero-media{
     position:relative; border-radius:32px; overflow:hidden; min-height:560px;
     display:flex; align-items:flex-end;
+    background:#21180C url("bilder/v1-poster.jpg") center/cover no-repeat;
   }
   .hero-media svg.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   .hero-videos{ position:absolute; inset:0; }
@@ -358,7 +363,7 @@
   .hero h1{ font-size:clamp(2.4rem, 5.4vw, 3.8rem); color:#FFF8EE; }
   .hero-sub{ font-size:1.15rem; color:#FFF3E2; max-width:44ch; margin-top:1rem; }
   .hero-cta-row{ display:flex; flex-wrap:wrap; gap:.9rem; margin-top:1.8rem; }
-  @media (max-width:640px){ .hero-content{ padding:2.4rem 1.4rem 2rem; } .hero-media{ min-height:560px; border-radius:22px; } }
+  @media (max-width:640px){ .hero-content{ padding:2.4rem 1.4rem 2rem; } .hero-media{ border-radius:22px; } }
   .hero-clip-label{
     position:absolute; right:1.6rem; bottom:1.6rem; z-index:2;
     margin:0; padding:.55rem 1.05rem; border-radius:999px;
@@ -391,6 +396,7 @@
   .collage{ position:relative; min-height:380px; }
   .collage-img{ position:absolute; border-radius:24px; overflow:hidden; border:6px solid var(--surface); box-shadow:var(--shadow); margin:0; }
   .collage-img img{ display:block; width:100%; height:100%; object-fit:cover; }
+  .collage-img picture{ display:block; width:100%; height:100%; }
   .collage-img.c1{ width:72%; height:250px; top:0; left:0; z-index:1; }
   .collage-img.c2{ width:58%; height:210px; bottom:0; right:0; z-index:2; }
   @media (max-width:860px){
@@ -402,7 +408,7 @@
   .about-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:3rem; align-items:center; }
   @media (max-width:860px){ .about-grid{ grid-template-columns:1fr; } }
   .about-portrait{ margin:0; border-radius:28px; overflow:hidden; box-shadow:var(--shadow); }
-  .about-portrait img{ display:block; width:100%; height:auto; object-fit:cover; }
+  .about-portrait picture, .about-portrait img{ display:block; width:100%; height:auto; }
 
   /* ---------- offering cards ---------- */
   .offer-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.6rem; }
@@ -421,8 +427,10 @@
     gap:1.1rem;
   }
   .moment-tile{ position:relative; margin:0; border-radius:22px; overflow:hidden; box-shadow:var(--shadow-sm); background:var(--olive-deep); min-height:0; }
-  .moment-tile img, .moment-tile video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
-  .moment-tile video{ z-index:0; }
+  .moment-tile img, .moment-tile video, .moment-tile picture{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .moment-tile picture img{ width:100%; height:100%; }
+  .moment-tile video{ z-index:1; opacity:0; transition:opacity .35s ease; }
+  .moment-tile video.is-on{ opacity:1; }
   .moment-tile figcaption{
     position:absolute; left:0; right:0; bottom:0; z-index:1; padding:.85rem 1rem;
     font-size:.85rem; font-weight:600; color:#FFF8EE;
@@ -440,7 +448,7 @@
     .moment-tile video{ display:none; }
     .moment-tile .moment-fallback{ display:block; }
   }
-  .moment-tile .moment-fallback{ display:none; }
+  .moment-tile .moment-fallback{ display:block; z-index:0; }
 
   /* ---------- programma ---------- */
   .programma-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; margin-bottom:2.6rem; }
@@ -581,6 +589,46 @@
   .footer-contact a{ display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; }
   .footer-contact svg{ width:1.1rem; height:1.1rem; }
   .footer-bottom{ margin-top:2.8rem; padding-top:1.6rem; border-top:1px solid rgba(245,238,220,0.2); font-size:.82rem; color:rgba(245,238,220,0.65); display:flex; flex-wrap:wrap; justify-content:space-between; gap:.6rem; }
+
+  #map, #weligama, #faq, #book{ content-visibility:auto; contain-intrinsic-size:auto 700px; }
+
+  @media (max-width:640px){
+    .nav-pill{ padding:.5rem .5rem .5rem .9rem; gap:.4rem; }
+    .logo strong{ font-size:.92rem; }
+    .nav-cta{ padding:.55rem .9rem; font-size:.82rem; }
+    .icon-link, .nav-toggle{ width:2.55rem; height:2.55rem; }
+    .hero{ padding-top:.9rem; }
+    .hero-media{ min-height:min(72svh, 540px); border-radius:20px; }
+    .hero h1{ font-size:clamp(1.95rem, 9vw, 2.55rem); }
+    .hero-sub{ font-size:1rem; }
+    .hero-cta-row{ width:100%; }
+    .hero-cta-row .btn{ flex:1 1 8rem; justify-content:center; min-height:48px; }
+    .hero-clip-label{ font-size:.78rem; padding:.45rem .8rem; max-width:min(28ch, 86%); }
+    .facts-strip{ gap:.85rem 1.1rem; padding-block:1.15rem; }
+    .fact-item{ font-size:.86rem; }
+    .icon-strip{ gap:.65rem; padding-block:.2rem 2rem; }
+    .icon-tile{ width:4.1rem; height:4.1rem; border-radius:16px; }
+    .icon-tile svg{ width:1.9rem; height:1.9rem; }
+    .kicker-head{ margin-bottom:1.5rem; gap:.45rem; }
+    .welcome-grid, .about-grid{ gap:1.5rem; }
+    .about-portrait img{ width:100%; height:min(62vh, 420px); object-fit:cover; object-position:center 20%; }
+    .collage{ min-height:240px; }
+    .moments-grid{ grid-template-rows:260px 150px 190px; gap:.75rem; }
+    .moment-tile{ border-radius:18px; }
+    .lesson-intro-media{ min-height:210px; }
+    .lesson-intro-copy{ padding:0 0 1.2rem; }
+    .glance-card{ padding:1.35rem; border-radius:22px; }
+    .map-wrap{ padding:.85rem; border-radius:20px; }
+    .booking-panel .btn{ width:100%; justify-content:center; min-height:48px; }
+    .summary-card{ position:static; }
+    .field-row{ flex-direction:column; gap:0; }
+    .footer-grid, .footer-bottom{ gap:1.2rem; }
+    .site-footer{ padding-block:2.6rem 2rem; border-radius:24px 24px 0 0; }
+  }
+  @media (max-width:400px){
+    #instagram-link-1{ display:none; }
+    .logo strong{ max-width:9.5rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  }
 </style>
 </head>
 <body>
@@ -641,10 +689,10 @@
         <rect width="1200" height="700" fill="url(#heroScrim)"/>
       </svg>
       <div class="hero-videos" aria-hidden="true">
-        <video class="hero-video is-active" src="bilder/v1.mp4" muted playsinline preload="auto"></video>
-        <video class="hero-video" src="bilder/v2.mp4" data-label="15 minutes on the beach: how to surf" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="bilder/v3.mp4" muted playsinline preload="metadata"></video>
-        <video class="hero-video" src="bilder/v4.mp4" data-label="60 minutes in the water: beginner session" muted playsinline preload="metadata"></video>
+        <video class="hero-video is-active" data-src="bilder/v1.mp4" data-src-sm="bilder/v1-sm.mp4" poster="bilder/v1-poster.jpg" muted playsinline preload="none"></video>
+        <video class="hero-video" data-src="bilder/v2.mp4" data-src-sm="bilder/v2-sm.mp4" poster="bilder/v2-poster.jpg" data-label="15 minutes on the beach: how to surf" muted playsinline preload="none"></video>
+        <video class="hero-video" data-src="bilder/v3.mp4" data-src-sm="bilder/v3-sm.mp4" poster="bilder/v3-poster.jpg" muted playsinline preload="none"></video>
+        <video class="hero-video" data-src="bilder/v4.mp4" data-src-sm="bilder/v4-sm.mp4" poster="bilder/v4-poster.jpg" data-label="60 minutes in the water: beginner session" muted playsinline preload="none"></video>
       </div>
       <div class="hero-scrim"></div>
       <div class="hero-content">
@@ -732,10 +780,16 @@
       </div>
       <div class="collage">
         <figure class="collage-img c1">
-          <img src="bilder/ride.jpg" alt="A surfer riding a green wave in Weligama, Sri Lanka" width="567" height="424">
+          <picture>
+            <source type="image/webp" srcset="bilder/ride.webp">
+            <img src="bilder/ride.jpg" alt="A surfer riding a green wave in Weligama, Sri Lanka" width="800" height="598" decoding="async">
+          </picture>
         </figure>
         <figure class="collage-img c2">
-          <img src="bilder/first-wave.jpg" alt="A beginner catching a whitewater wave during a surf lesson in Weligama" width="567" height="424">
+          <picture>
+            <source type="image/webp" srcset="bilder/first-wave.webp">
+            <img src="bilder/first-wave.jpg" alt="A beginner catching a whitewater wave during a surf lesson in Weligama" width="800" height="598" decoding="async">
+          </picture>
         </figure>
       </div>
     </div>
@@ -790,7 +844,10 @@
   <section class="section" id="about">
     <div class="wrap about-grid">
       <figure class="about-portrait">
-        <img src="bilder/profile.jpg" alt="Lahiru Prasad, local surf instructor on the beach in Weligama, Sri Lanka" width="900" height="1600">
+        <picture>
+          <source type="image/webp" srcset="bilder/profile.webp">
+          <img src="bilder/profile.jpg" alt="Lahiru Prasad, local surf instructor on the beach in Weligama, Sri Lanka" width="800" height="1422" decoding="async" loading="lazy">
+        </picture>
       </figure>
       <div>
         <div class="kicker-head">
@@ -818,20 +875,29 @@
       </div>
       <div class="moments-grid">
         <figure class="moment-tile moment-feature">
-          <img src="bilder/lesson.jpg" alt="Surf lesson briefing on the beach in Weligama, with students sitting around an instructor and boards on the sand" width="1400" height="2488" loading="lazy">
+          <picture>
+            <source type="image/webp" srcset="bilder/lesson.webp">
+            <img src="bilder/lesson.jpg" alt="Surf lesson briefing on the beach in Weligama, with students sitting around an instructor and boards on the sand" width="900" height="1600" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Beach briefing</figcaption>
         </figure>
         <figure class="moment-tile">
-          <img src="bilder/ride.jpg" alt="A surfer riding a green wave off Weligama Bay" width="567" height="424" loading="lazy">
+          <picture>
+            <source type="image/webp" srcset="bilder/ride.webp">
+            <img src="bilder/ride.jpg" alt="A surfer riding a green wave off Weligama Bay" width="800" height="598" loading="lazy" decoding="async">
+          </picture>
           <figcaption>On a green wave</figcaption>
         </figure>
         <figure class="moment-tile">
-          <img src="bilder/first-wave.jpg" alt="A student standing up on a whitewater wave during a beginner surf lesson in Weligama" width="567" height="424" loading="lazy">
+          <picture>
+            <source type="image/webp" srcset="bilder/first-wave.webp">
+            <img src="bilder/first-wave.jpg" alt="A student standing up on a whitewater wave during a beginner surf lesson in Weligama" width="800" height="598" loading="lazy" decoding="async">
+          </picture>
           <figcaption>First waves</figcaption>
         </figure>
         <figure class="moment-tile moment-wide">
-          <video class="moment-clip" src="bilder/intro.mp4" poster="bilder/intro.jpg" muted playsinline loop autoplay preload="auto" aria-label="Lahiru guiding a student through every step of the beach intro in Weligama"></video>
-          <img class="moment-fallback" src="bilder/intro.jpg" alt="Lahiru guiding a student through pop-up practice on the sand in Weligama" width="1280" height="720" loading="lazy">
+          <video class="moment-clip" data-src="bilder/intro.mp4" data-src-sm="bilder/intro-sm.mp4" poster="bilder/intro-poster.jpg" muted playsinline loop preload="none" aria-label="Lahiru guiding a student through every step of the beach intro in Weligama"></video>
+          <img class="moment-fallback" src="bilder/intro-poster.jpg" alt="Lahiru guiding a student through pop-up practice on the sand in Weligama" width="960" height="540" loading="lazy" decoding="async">
           <figcaption>Lahiru guides you through every step</figcaption>
         </figure>
       </div>
@@ -876,7 +942,7 @@
       </p>
       <figure class="lesson-intro">
         <div class="lesson-intro-media">
-          <video class="lesson-intro-video" src="bilder/v2.mp4" muted playsinline loop preload="metadata" aria-label="15 minute beach introduction: pop-up practice and how to surf"></video>
+          <video class="lesson-intro-video" data-src="bilder/v2.mp4" data-src-sm="bilder/v2-sm.mp4" poster="bilder/v2-poster.jpg" muted playsinline loop preload="none" aria-label="15 minute beach introduction: pop-up practice and how to surf"></video>
         </div>
         <figcaption class="lesson-intro-copy">
           <span class="script">how a lesson starts</span>
@@ -886,7 +952,7 @@
       </figure>
       <figure class="lesson-intro is-flip">
         <div class="lesson-intro-media">
-          <video class="lesson-intro-video" src="bilder/v4.mp4" muted playsinline loop preload="metadata" aria-label="60 minute beginner session in the water in Weligama"></video>
+          <video class="lesson-intro-video" data-src="bilder/v4.mp4" data-src-sm="bilder/v4-sm.mp4" poster="bilder/v4-poster.jpg" muted playsinline loop preload="none" aria-label="60 minute beginner session in the water in Weligama"></video>
         </div>
         <figcaption class="lesson-intro-copy">
           <span class="script">then in the water</span>
@@ -1304,6 +1370,34 @@
 
   var heroVideos = Array.prototype.slice.call(document.querySelectorAll(".hero-video"));
   var heroLabel = document.getElementById("hero-clip-label");
+  var preferSmall = window.matchMedia("(max-width:700px)").matches;
+  function pickSrc(el){
+    return preferSmall
+      ? (el.getAttribute("data-src-sm") || el.getAttribute("data-src"))
+      : el.getAttribute("data-src");
+  }
+  function ensureSrc(el){
+    var want = pickSrc(el);
+    if (!want) return;
+    if (el.getAttribute("src") !== want) el.src = want;
+  }
+  function tryPlay(el){
+    var playPromise = el.play();
+    if (playPromise && playPromise.catch) playPromise.catch(function(){});
+  }
+  function whenReady(el, fn){
+    var done = false;
+    function run(){
+      if (done) return;
+      done = true;
+      fn();
+    }
+    if (el.readyState >= 2) run();
+    else {
+      el.addEventListener("canplay", run, { once:true });
+      el.addEventListener("loadeddata", run, { once:true });
+    }
+  }
   if (heroVideos.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
     var heroIndex = 0;
     function setHeroLabel(video){
@@ -1319,14 +1413,19 @@
     function playHero(index){
       var current = heroVideos[heroIndex];
       var next = heroVideos[index];
-      next.currentTime = 0;
-      var playPromise = next.play();
-      if (playPromise && playPromise.catch) playPromise.catch(function(){});
-      current.classList.remove("is-active");
-      next.classList.add("is-active");
-      if (current !== next) current.pause();
-      heroIndex = index;
-      setHeroLabel(next);
+      ensureSrc(next);
+      whenReady(next, function(){
+        next.currentTime = 0;
+        next.addEventListener("playing", function(){ next.classList.add("is-on"); }, { once:true });
+        tryPlay(next);
+        current.classList.remove("is-active");
+        current.classList.remove("is-on");
+        next.classList.add("is-active");
+        if (current !== next) current.pause();
+        heroIndex = index;
+        setHeroLabel(next);
+        ensureSrc(heroVideos[(index + 1) % heroVideos.length]);
+      });
     }
     heroVideos.forEach(function(video, idx){
       video.addEventListener("ended", function(){
@@ -1341,21 +1440,21 @@
   var clipsToPlay = [momentClip].concat(lessonIntros).filter(Boolean);
   if (clipsToPlay.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
     function playWhenVisible(video){
+      function loadAndPlay(){
+        ensureSrc(video);
+        video.addEventListener("playing", function(){ video.classList.add("is-on"); }, { once:true });
+        tryPlay(video);
+      }
       if ("IntersectionObserver" in window){
         var watch = new IntersectionObserver(function(entries){
           entries.forEach(function(entry){
-            if (entry.isIntersecting){
-              var playPromise = video.play();
-              if (playPromise && playPromise.catch) playPromise.catch(function(){});
-            } else {
-              video.pause();
-            }
+            if (entry.isIntersecting) loadAndPlay();
+            else video.pause();
           });
-        }, { threshold: 0.05 });
+        }, { threshold: 0.05, rootMargin: "120px 0px" });
         watch.observe(video);
       } else {
-        var playPromise = video.play();
-        if (playPromise && playPromise.catch) playPromise.catch(function(){});
+        loadAndPlay();
       }
     }
     clipsToPlay.forEach(playWhenVisible);
