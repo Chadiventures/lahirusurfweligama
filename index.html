@@ -25,6 +25,8 @@
 <meta name="twitter:image" content="https://lahirusurfweligama.com/bilder/profile.jpg">
 
 <link rel="preload" as="image" href="bilder/v1-poster.jpg" fetchpriority="high">
+<link rel="preload" as="video" href="bilder/v1-sm.mp4" type="video/mp4" media="(max-width:700px)">
+<link rel="preload" as="video" href="bilder/v1.mp4" type="video/mp4" media="(min-width:701px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Schibsted+Grotesk:wght@400;600;700&display=swap">
@@ -345,7 +347,6 @@
     display:flex; align-items:flex-end;
     background:#21180C url("bilder/v1-poster.jpg") center/cover no-repeat;
   }
-  .hero-media svg.bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
   .hero-videos{ position:absolute; inset:0; }
   .hero-video{
     position:absolute; inset:0; width:100%; height:100%;
@@ -698,32 +699,19 @@
   <!-- ================= HERO ================= -->
   <section class="hero wrap">
     <div class="hero-media">
-      <svg class="bg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <defs>
-          <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="var(--rose)"/>
-            <stop offset="55%" stop-color="var(--accent-2)"/>
-            <stop offset="100%" stop-color="var(--accent)"/>
-          </linearGradient>
-          <linearGradient id="heroScrim" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="var(--olive-deep)" stop-opacity="0.55"/>
-            <stop offset="45%" stop-color="var(--olive-deep)" stop-opacity="0.05"/>
-            <stop offset="100%" stop-color="var(--olive-deep)" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <rect width="1200" height="700" fill="url(#heroSky)"/>
-        <circle cx="620" cy="260" r="150" fill="#FFF8EE" opacity="0.9"/>
-        <path d="M0,430 C150,380 300,460 450,410 C600,360 750,440 900,400 C1000,375 1100,395 1200,385 L1200,700 L0,700 Z" fill="var(--khaki)"/>
-        <path d="M0,480 C150,440 300,500 450,465 C600,430 750,490 900,460 C1000,442 1100,458 1200,450 L1200,700 L0,700 Z" fill="var(--sage)"/>
-        <path d="M0,540 C150,510 300,555 450,530 C600,505 750,550 900,528 C1000,514 1100,524 1200,518 L1200,700 L0,700 Z" fill="var(--olive-deep)"/>
-        <rect width="1200" height="700" fill="url(#heroScrim)"/>
-      </svg>
       <div class="hero-videos" aria-hidden="true">
-        <video class="hero-video is-active" data-src="bilder/v1.mp4" data-src-sm="bilder/v1-sm.mp4" poster="bilder/v1-poster.jpg" muted playsinline preload="none"></video>
+        <video class="hero-video is-active" id="hero-first" muted playsinline autoplay preload="auto" poster="bilder/v1-poster.jpg" data-src="bilder/v1.mp4" data-src-sm="bilder/v1-sm.mp4"></video>
         <video class="hero-video" data-src="bilder/v2.mp4" data-src-sm="bilder/v2-sm.mp4" poster="bilder/v2-poster.jpg" data-label="15 minutes on the beach: how to surf" muted playsinline preload="none"></video>
         <video class="hero-video" data-src="bilder/v3.mp4" data-src-sm="bilder/v3-sm.mp4" poster="bilder/v3-poster.jpg" muted playsinline preload="none"></video>
         <video class="hero-video" data-src="bilder/v4.mp4" data-src-sm="bilder/v4-sm.mp4" poster="bilder/v4-poster.jpg" data-label="60 minutes in the water: beginner session" muted playsinline preload="none"></video>
       </div>
+      <script>
+        (function(){
+          var v = document.getElementById("hero-first");
+          if (!v) return;
+          v.src = window.matchMedia("(max-width:700px)").matches ? v.getAttribute("data-src-sm") : v.getAttribute("data-src");
+        })();
+      </script>
       <div class="hero-scrim"></div>
       <div class="hero-content">
         <h1>Learn to surf in Weligama, Sri Lanka</h1>
@@ -1420,7 +1408,9 @@
   function ensureSrc(el){
     var want = pickSrc(el);
     if (!want) return;
-    if (el.getAttribute("src") !== want) el.src = want;
+    var current = el.getAttribute("src") || "";
+    if (current === want || (el.currentSrc && el.currentSrc.indexOf(want.replace(/^.*\//,"")) !== -1)) return;
+    el.src = want;
   }
   function tryPlay(el){
     var playPromise = el.play();
@@ -1456,9 +1446,11 @@
       var next = heroVideos[index];
       ensureSrc(next);
       whenReady(next, function(){
-        next.currentTime = 0;
         next.addEventListener("playing", function(){ next.classList.add("is-on"); }, { once:true });
-        tryPlay(next);
+        if (next.paused){
+          next.currentTime = 0;
+          tryPlay(next);
+        }
         current.classList.remove("is-active");
         current.classList.remove("is-on");
         next.classList.add("is-active");
